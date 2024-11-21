@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class PostContainer extends StatelessWidget {
   final String userName;
   final String imagePath;
+  final String profilePhoto;
   final String postTitle;
   final String postDescription;
   final String postDateTime;
@@ -14,6 +15,7 @@ class PostContainer extends StatelessWidget {
     super.key,
     required this.userName,
     required this.imagePath,
+    required this.profilePhoto,
     required this.postTitle,
     required this.postDescription,
     required this.postDateTime,
@@ -33,12 +35,10 @@ class PostContainer extends StatelessWidget {
             // author details
             Row(
               children: [
-                // user avatar
-                Icon(
-                  // CupertinoIcons.person,
-                  Icons.person,
-                  size: 20,
-                  color: Theme.of(context).colorScheme.secondary,
+                // profile photo
+                CircleAvatar(
+                  radius: 15,
+                  backgroundImage: Image.asset(profilePhoto).image,
                 ),
 
                 const SizedBox(width: 10),

@@ -2,6 +2,8 @@ import 'package:craft_box/components/social_media_box.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../components/post_container.dart';
+
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
@@ -33,6 +35,7 @@ class _ProfilePageState extends State<ProfilePage> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: ListView(
+          shrinkWrap: true,
           children: [
             Column(
               children: [
@@ -51,15 +54,18 @@ class _ProfilePageState extends State<ProfilePage> {
                 Text(
                   'Mary Jones',
                   style: TextStyle(
-                      fontSize: 22,
-                      color: Theme.of(context).colorScheme.secondary),
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 25),
 
                 // profile description
                 Text(
-                  'Profile description, a text that describe the person',
+                  textAlign: TextAlign.center,
+                  'Crocheting is what I love to do',
                   style: TextStyle(
                       fontSize: 15,
                       color: Theme.of(context).colorScheme.secondary),
@@ -150,7 +156,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
-                              color: Theme.of(context).colorScheme.primary,
+                              color: Theme.of(context).colorScheme.surface,
                             ),
                           ),
                         ],
@@ -165,7 +171,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           horizontal: 10, vertical: 10),
                       child: Image(
                         width: 25,
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.surface,
                         image: Image.asset(
                           'icons/profile/facebook_icon.png',
                           // color: Colors.white,
@@ -180,7 +186,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           horizontal: 10, vertical: 10),
                       child: Image(
                         width: 25,
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.surface,
                         image: Image.asset(
                           'icons/profile/instagram_icon.png',
                           // color: Colors.white,
@@ -188,9 +194,21 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ),
                   ],
-                )
+                ),
+
+                const SizedBox(height: 30),
 
                 // posts
+                const PostContainer(
+                  userName: 'Mary Johns',
+                  imagePath: 'images/crocheted_pillow.jpg',
+                  profilePhoto: 'images/profile/profile_01.jpg',
+                  postTitle: 'Crocheted pillow',
+                  postDescription: 'Handmade crocheted pillow',
+                  postDateTime: 'Today, 10:46',
+                  isUserPost: true,
+                  hasLike: true,
+                ),
               ],
             )
           ],

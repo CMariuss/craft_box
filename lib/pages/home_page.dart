@@ -26,6 +26,7 @@ class _HomePageState extends State<HomePage> {
             PostContainer(
               userName: 'Mary Johns',
               imagePath: 'images/crocheted_pillow.jpg',
+              profilePhoto: 'images/profile/profile_01.jpg',
               postTitle: 'Crocheted pillow',
               postDescription: 'Handmade crocheted pillow',
               postDateTime: 'Today, 10:46',
@@ -39,6 +40,7 @@ class _HomePageState extends State<HomePage> {
             PostContainer(
               userName: 'John Britton',
               imagePath: 'images/first_post_wood.jpg',
+              profilePhoto: 'images/profile/profile_02.jpg',
               postTitle: 'Wooden kitchen',
               postDescription: 'Handmade wooden kitchen tools',
               postDateTime: 'Today, 10:30',
