@@ -27,4 +27,6 @@ flutter:
 
   assets:
     - images/
+    - images/profile/
+    - icons/profile/
 

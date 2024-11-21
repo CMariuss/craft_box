@@ -7,7 +7,7 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Drawer(
+    return Drawer(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -19,12 +19,13 @@ class CustomDrawer extends StatelessWidget {
                 child: Icon(
                   CupertinoIcons.cube,
                   size: 50,
+                  color: Theme.of(context).colorScheme.secondary,
                 ),
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
 
               Padding(
-                padding: EdgeInsets.only(left: 30),
+                padding: const EdgeInsets.only(left: 30),
                 child: Column(
                   children: [
                     // profile
@@ -32,6 +33,13 @@ class CustomDrawer extends StatelessWidget {
                       icon: CupertinoIcons.person,
                       title: 'Profile',
                       iconSize: 20,
+                      onTap: () {
+                        // close drawer
+                        Navigator.pop(context);
+
+                        // go to profile page
+                        Navigator.pushNamed(context, '/profile_page');
+                      },
                     ),
 
                     // explore
@@ -39,6 +47,7 @@ class CustomDrawer extends StatelessWidget {
                       icon: CupertinoIcons.search,
                       title: 'Explore',
                       iconSize: 20,
+                      onTap: () {},
                     ),
 
                     // saved items
@@ -46,6 +55,15 @@ class CustomDrawer extends StatelessWidget {
                       icon: CupertinoIcons.bookmark,
                       title: 'Saved items',
                       iconSize: 18,
+                      onTap: () {},
+                    ),
+
+                    // notifications
+                    DrawerTile(
+                      icon: CupertinoIcons.bell,
+                      title: 'Notifications',
+                      iconSize: 18,
+                      onTap: () {},
                     ),
                   ],
                 ),
@@ -53,11 +71,12 @@ class CustomDrawer extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: EdgeInsets.only(left: 30, bottom: 30),
+            padding: const EdgeInsets.only(left: 30, bottom: 30),
             child: DrawerTile(
               icon: Icons.settings,
               title: 'Settings',
               iconSize: 22,
+              onTap: () {},
             ),
           )
         ],

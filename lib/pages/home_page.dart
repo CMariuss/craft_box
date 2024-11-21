@@ -24,12 +24,12 @@ class _HomePageState extends State<HomePage> {
 
             // first post
             PostContainer(
-              userName: 'Petrea Florenta',
+              userName: 'Mary Johns',
               imagePath: 'images/crocheted_pillow.jpg',
               postTitle: 'Crocheted pillow',
               postDescription: 'Handmade crocheted pillow',
               postDateTime: 'Today, 10:46',
-              isUserPost: false,
+              isUserPost: true,
               hasLike: true,
             ),
 
@@ -37,12 +37,12 @@ class _HomePageState extends State<HomePage> {
 
             // second post
             PostContainer(
-              userName: 'Crintea Marius',
+              userName: 'John Britton',
               imagePath: 'images/first_post_wood.jpg',
               postTitle: 'Wooden kitchen',
               postDescription: 'Handmade wooden kitchen tools',
               postDateTime: 'Today, 10:30',
-              isUserPost: true,
+              isUserPost: false,
               hasLike: false,
             ),
           ],

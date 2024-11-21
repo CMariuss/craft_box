@@ -1,4 +1,5 @@
 import 'package:craft_box/pages/home_page.dart';
+import 'package:craft_box/pages/profile_page.dart';
 import 'package:craft_box/themes/light_mode.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,9 @@ class SocialMediaApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
       theme: lightMode,
+      routes: {
+        '/profile_page': (context) => const ProfilePage(),
+      },
     );
   }
 }
