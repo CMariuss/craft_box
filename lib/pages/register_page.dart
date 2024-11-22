@@ -1,19 +1,20 @@
 import 'package:craft_box/components/auth_text_field.dart';
 import 'package:craft_box/components/bottom_button.dart';
-import 'package:craft_box/pages/register_page.dart';
+import 'package:craft_box/pages/login_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final emailTextController = TextEditingController();
   final passwordTextController = TextEditingController();
+  final repeatPasswordTextController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,13 +32,13 @@ class _LoginPageState extends State<LoginPage> {
                 color: Theme.of(context).colorScheme.secondary,
               ),
 
-              const SizedBox(height: 30),
+              const SizedBox(height: 35),
 
               // welcome text
               Text(
-                'Welcome back, let\'s login!',
+                'Hi, let\'s create an account!',
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 15,
                   color: Theme.of(context).colorScheme.secondary,
                 ),
               ),
@@ -62,9 +63,18 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 20),
 
+              // password text field
+              AuthTextField(
+                isHidden: true,
+                controller: repeatPasswordTextController,
+                hintText: 'repeat password . .',
+              ),
+
+              const SizedBox(height: 30),
+
               // login button
               BottomButton(
-                text: 'Login',
+                text: 'Register',
                 onTap: () {},
               ),
 
@@ -76,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   // text
                   Text(
-                    'Not a member?',
+                    'Have an account?',
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.secondary,
                     ),
@@ -90,12 +100,12 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const RegisterPage(),
+                          builder: (context) => const LoginPage(),
                         ),
                       );
                     },
                     child: const Text(
-                      'Create an account',
+                      'Login here',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.blueAccent,
