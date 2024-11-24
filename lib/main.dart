@@ -16,9 +16,10 @@ class SocialMediaApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
       theme: lightMode,
+      initialRoute: '/',
       routes: {
+        '/': (context) => const HomePage(),
         '/profile_page': (context) => const ProfilePage(),
         '/login_page': (context) => const LoginPage(),
         '/register_page': (context) => const RegisterPage(),

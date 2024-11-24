@@ -38,7 +38,7 @@ class CustomDrawer extends StatelessWidget {
                         Navigator.pop(context);
 
                         // go to profile page
-                        Navigator.pushNamed(context, '/register_page');
+                        Navigator.pushNamed(context, '/profile_page');
                       },
                     ),
 

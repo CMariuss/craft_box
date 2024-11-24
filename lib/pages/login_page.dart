@@ -65,7 +65,9 @@ class _LoginPageState extends State<LoginPage> {
               // login button
               BottomButton(
                 text: 'Login',
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, '/');
+                },
               ),
 
               const SizedBox(height: 40),

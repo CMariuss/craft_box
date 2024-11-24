@@ -20,7 +20,9 @@ class _ProfilePageState extends State<ProfilePage> {
         actions: [
           //if the profile belongs to the current user then display log out and edit icons
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/login_page');
+            },
             icon: const Icon(Icons.logout),
           ),
           const SizedBox(width: 10),
