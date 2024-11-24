@@ -2,6 +2,8 @@
 
 A social media for sharing hand made thinks
 
+The features/domain folder contains the core logic of the entire app
+
 # References
 
 ## Images
