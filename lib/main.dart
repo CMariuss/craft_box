@@ -1,11 +1,15 @@
+import 'package:craft_box/firebase_options.dart';
 import 'package:craft_box/pages/home_page.dart';
 import 'package:craft_box/pages/login_page.dart';
 import 'package:craft_box/pages/profile_page.dart';
 import 'package:craft_box/pages/register_page.dart';
 import 'package:craft_box/themes/light_mode.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const SocialMediaApp());
 }
 
