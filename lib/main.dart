@@ -1,8 +1,7 @@
 import 'package:craft_box/firebase_options.dart';
+import 'package:craft_box/pages/auth_page.dart';
 import 'package:craft_box/pages/home_page.dart';
-import 'package:craft_box/pages/login_page.dart';
 import 'package:craft_box/pages/profile_page.dart';
-import 'package:craft_box/pages/register_page.dart';
 import 'package:craft_box/themes/light_mode.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -25,8 +24,7 @@ class SocialMediaApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomePage(),
         '/profile_page': (context) => const ProfilePage(),
-        '/login_page': (context) => const LoginPage(),
-        '/register_page': (context) => const RegisterPage(),
+        '/auth_page': (context) => const AuthPage(),
       },
     );
   }

@@ -1,11 +1,15 @@
 import 'package:craft_box/components/auth_text_field.dart';
 import 'package:craft_box/components/bottom_button.dart';
-import 'package:craft_box/pages/register_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final Function()? onTap;
+
+  const LoginPage({
+    super.key,
+    required this.onTap,
+  });
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -65,6 +69,7 @@ class _LoginPageState extends State<LoginPage> {
               // login button
               BottomButton(
                 text: 'Login',
+                color: Colors.deepOrangeAccent,
                 onTap: () {
                   Navigator.pushNamed(context, '/');
                 },
@@ -88,19 +93,13 @@ class _LoginPageState extends State<LoginPage> {
 
                   // button
                   GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const RegisterPage(),
-                        ),
-                      );
-                    },
+                    // go to register page on user tap
+                    onTap: widget.onTap,
                     child: const Text(
                       'Create an account',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.blueAccent,
+                        color: Colors.deepOrangeAccent,
                       ),
                     ),
                   )

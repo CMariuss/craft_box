@@ -5,7 +5,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+  final Function()? onTap;
+
+  const RegisterPage({super.key, required this.onTap});
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -75,6 +77,7 @@ class _RegisterPageState extends State<RegisterPage> {
               // login button
               BottomButton(
                 text: 'Register',
+                color: Colors.deepOrangeAccent,
                 onTap: () {},
               ),
 
@@ -96,19 +99,13 @@ class _RegisterPageState extends State<RegisterPage> {
 
                   // button
                   GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const LoginPage(),
-                        ),
-                      );
-                    },
+                    // go to login page on user tap
+                    onTap: widget.onTap,
                     child: const Text(
                       'Login here',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.blueAccent,
+                        color: Colors.deepOrangeAccent,
                       ),
                     ),
                   )
