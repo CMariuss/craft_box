@@ -22,7 +22,7 @@ class DrawerTile extends StatelessWidget {
         leading: Icon(
           icon,
           size: iconSize,
-          color: Theme.of(context).colorScheme.secondary,
+          color: Theme.of(context).colorScheme.tertiary,
         ),
         title: Text(
           title,

@@ -21,7 +21,9 @@ class AuthTextField extends StatelessWidget {
       decoration: InputDecoration(
         filled: true,
         hintText: hintText,
-        hintStyle: TextStyle(color: Theme.of(context).colorScheme.tertiary),
+        hintStyle: TextStyle(
+          color: Theme.of(context).colorScheme.secondaryContainer,
+        ),
         fillColor: Theme.of(context).colorScheme.primary,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),

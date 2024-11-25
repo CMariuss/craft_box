@@ -113,7 +113,7 @@ class PostContainer extends StatelessWidget {
                 Icon(
                   hasLike ? CupertinoIcons.heart_fill : CupertinoIcons.heart,
                   color: hasLike
-                      ? Colors.pinkAccent
+                      ? Theme.of(context).colorScheme.tertiary
                       : Theme.of(context).colorScheme.secondary,
                 ),
 

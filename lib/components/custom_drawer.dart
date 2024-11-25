@@ -18,7 +18,7 @@ class CustomDrawer extends StatelessWidget {
               DrawerHeader(
                 child: Icon(
                   CupertinoIcons.cube,
-                  size: 50,
+                  size: 70,
                   color: Theme.of(context).colorScheme.secondary,
                 ),
               ),

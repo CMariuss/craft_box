@@ -23,13 +23,16 @@ class _ProfilePageState extends State<ProfilePage> {
             onPressed: () {
               Navigator.pushNamed(context, '/auth_page');
             },
-            icon: const Icon(Icons.logout),
+            icon: const Icon(Icons.logout_rounded),
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: 8),
 
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.edit_outlined),
+            icon: Icon(
+              Icons.edit_outlined,
+              color: Theme.of(context).colorScheme.secondary,
+            ),
           ),
           const SizedBox(width: 10),
         ],
@@ -85,7 +88,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         // location icon
                         Icon(
                           Icons.location_on_outlined,
-                          size: 14,
+                          size: 16,
                           color: Theme.of(context).colorScheme.secondary,
                         ),
 
@@ -95,7 +98,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Text(
                           'France',
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 14,
                             color: Theme.of(context).colorScheme.secondary,
                           ),
                         ),
@@ -110,7 +113,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         // location icon
                         Icon(
                           Icons.language,
-                          size: 14,
+                          size: 16,
                           color: Theme.of(context).colorScheme.secondary,
                         ),
 
@@ -120,7 +123,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Text(
                           'French, English',
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 14,
                             color: Theme.of(context).colorScheme.secondary,
                           ),
                         ),
@@ -145,9 +148,9 @@ class _ProfilePageState extends State<ProfilePage> {
                         children: [
                           // message icon
                           Icon(
-                            CupertinoIcons.chat_bubble,
-                            size: 20,
-                            color: Theme.of(context).colorScheme.primary,
+                            Icons.chat_outlined,
+                            size: 18,
+                            color: Theme.of(context).colorScheme.secondary,
                           ),
 
                           const SizedBox(width: 10),
@@ -158,7 +161,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
-                              color: Theme.of(context).colorScheme.surface,
+                              color: Theme.of(context).colorScheme.secondary,
                             ),
                           ),
                         ],
@@ -170,10 +173,10 @@ class _ProfilePageState extends State<ProfilePage> {
                     // social media list (facebook, x, instagram)
                     SocialMediaBox(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 10),
+                          horizontal: 12, vertical: 12),
                       child: Image(
-                        width: 25,
-                        color: Theme.of(context).colorScheme.surface,
+                        width: 22,
+                        color: Theme.of(context).colorScheme.secondary,
                         image: Image.asset(
                           'icons/profile/facebook_icon.png',
                           // color: Colors.white,
@@ -185,10 +188,10 @@ class _ProfilePageState extends State<ProfilePage> {
 
                     SocialMediaBox(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 10),
+                          horizontal: 12, vertical: 12),
                       child: Image(
-                        width: 25,
-                        color: Theme.of(context).colorScheme.surface,
+                        width: 22,
+                        color: Theme.of(context).colorScheme.secondary,
                         image: Image.asset(
                           'icons/profile/instagram_icon.png',
                           // color: Colors.white,
