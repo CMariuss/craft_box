@@ -24,12 +24,7 @@ class _MobileProfilePageState extends State<MobileProfilePage> {
           IconButton(
             onPressed: () {
               context.read<AuthCubit>().logout();
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const MobileAuthPage(),
-                ),
-              );
+              Navigator.pop(context);
             },
             icon: const Icon(Icons.logout_rounded),
           ),
