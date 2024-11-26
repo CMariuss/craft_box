@@ -1,9 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:craft_box/features/domain/entities/app_user.dart';
 import 'package:craft_box/features/domain/repository/auth_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class FirebaseAuthRepo implements AuthRepo {
+  // instance of the FirebaseAuth class
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+
+  // instance of the FirebaseFirestore class
+  final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
   @override
   Future<AppUser?> loginWithEmailPassword(String email, String password) async {
@@ -43,6 +48,12 @@ class FirebaseAuthRepo implements AuthRepo {
         email: email,
         name: name,
       );
+
+      // save user data in the firestore under the collections 'users'
+      await firebaseFirestore
+          .collection('users')
+          .doc(user.userId)
+          .set(user.toJson());
 
       // return the app user
       return user;
