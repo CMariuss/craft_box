@@ -78,7 +78,7 @@ class CustomDrawer extends StatelessWidget {
                     // settings
                     DrawerTile(
                       icon: Icons.settings,
-                      title: 'Notifications',
+                      title: 'Settings',
                       iconSize: 22,
                       onTap: () {},
                     ),

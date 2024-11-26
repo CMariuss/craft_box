@@ -1,5 +1,5 @@
-import 'package:craft_box/pages/mobile/mobile_login_page.dart';
-import 'package:craft_box/pages/mobile/mobile_register_page.dart';
+import 'package:craft_box/pages/tablet/tablet_login_page.dart';
+import 'package:craft_box/pages/tablet/tablet_register_page.dart';
 import 'package:flutter/material.dart';
 
 class TabletAuthPage extends StatefulWidget {
@@ -23,9 +23,9 @@ class _TabletAuthPageState extends State<TabletAuthPage> {
   @override
   Widget build(BuildContext context) {
     if (showLoginPage) {
-      return MobileLoginPage(onTap: togglePages);
+      return TabletLoginPage(onTap: togglePages);
     } else {
-      return MobileRegisterPage(onTap: togglePages);
+      return TabletRegisterPage(onTap: togglePages);
     }
   }
 }

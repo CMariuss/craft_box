@@ -1,3 +1,5 @@
+import 'package:craft_box/pages/desktop/desktop_login_page.dart';
+import 'package:craft_box/pages/desktop/desktop_register_page.dart';
 import 'package:craft_box/pages/mobile/mobile_login_page.dart';
 import 'package:craft_box/pages/mobile/mobile_register_page.dart';
 import 'package:flutter/material.dart';
@@ -23,9 +25,9 @@ class _DesktopAuthPageState extends State<DesktopAuthPage> {
   @override
   Widget build(BuildContext context) {
     if (showLoginPage) {
-      return MobileLoginPage(onTap: togglePages);
+      return DesktopLoginPage(onTap: togglePages);
     } else {
-      return MobileRegisterPage(onTap: togglePages);
+      return DesktopRegisterPage(onTap: togglePages);
     }
   }
 }

@@ -1,3 +1,4 @@
+import 'package:craft_box/components/desktop/desktop_post_container.dart';
 import 'package:craft_box/components/social_media_box.dart';
 import 'package:craft_box/features/presentation/cubits/auth_cubit.dart';
 import 'package:craft_box/pages/mobile/mobile_auth_page.dart';
@@ -20,21 +21,6 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
       appBar: AppBar(
         foregroundColor: Theme.of(context).colorScheme.secondary,
         actions: [
-          //if the profile belongs to the current user then display log out and edit icons
-          IconButton(
-            onPressed: () {
-              context.read<AuthCubit>().logout();
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const MobileAuthPage(),
-                ),
-              );
-            },
-            icon: const Icon(Icons.logout_rounded),
-          ),
-          const SizedBox(width: 8),
-
           IconButton(
             onPressed: () {},
             icon: Icon(
@@ -65,7 +51,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
 
                 // profile name
                 Text(
-                  'Mary Jones',
+                  'Mary Johns',
                   style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
@@ -212,7 +198,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
                 const SizedBox(height: 30),
 
                 // posts
-                const PostContainer(
+                const DesktopPostContainer(
                   userName: 'Mary Johns',
                   imagePath: 'images/crocheted_pillow.jpg',
                   profilePhoto: 'images/profile/profile_01.jpg',

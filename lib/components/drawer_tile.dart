@@ -16,17 +16,35 @@ class DrawerTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      onTap: onTap,
-      leading: Icon(
-        icon,
-        size: iconSize,
-        color: Theme.of(context).colorScheme.tertiary,
-      ),
-      title: Text(
-        title,
-        style: TextStyle(
-          color: Theme.of(context).colorScheme.secondary,
+    return SizedBox(
+      width: 200,
+      child: ListTile(
+        onTap: onTap,
+        // leading: Icon(
+        //   icon,
+        //   size: iconSize,
+        //   color: Theme.of(context).colorScheme.tertiary,
+        // ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            // icon
+            Icon(
+              icon,
+              size: iconSize,
+              color: Theme.of(context).colorScheme.tertiary,
+            ),
+
+            const SizedBox(width: 15),
+
+            // title
+            Text(
+              title,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+            ),
+          ],
         ),
       ),
     );
