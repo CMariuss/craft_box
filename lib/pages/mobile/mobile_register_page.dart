@@ -13,6 +13,7 @@ class MobileRegisterPage extends StatefulWidget {
 }
 
 class _MobileRegisterPageState extends State<MobileRegisterPage> {
+  final nameTextController = TextEditingController();
   final emailTextController = TextEditingController();
   final passwordTextController = TextEditingController();
   final repeatPasswordTextController = TextEditingController();
@@ -44,7 +45,16 @@ class _MobileRegisterPageState extends State<MobileRegisterPage> {
                 ),
               ),
 
-              const SizedBox(height: 50),
+              const SizedBox(height: 35),
+
+              // name text field
+              AuthTextField(
+                isHidden: false,
+                controller: nameTextController,
+                hintText: 'your name . .',
+              ),
+
+              const SizedBox(height: 20),
 
               // email text field
               AuthTextField(
