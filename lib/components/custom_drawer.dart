@@ -15,11 +15,17 @@ class CustomDrawer extends StatelessWidget {
           Column(
             children: [
               // app logo
-              DrawerHeader(
-                child: Icon(
-                  CupertinoIcons.cube,
-                  size: 70,
-                  color: Theme.of(context).colorScheme.secondary,
+              Theme(
+                data: Theme.of(context).copyWith(
+                  dividerTheme:
+                      const DividerThemeData(color: Colors.transparent),
+                ),
+                child: DrawerHeader(
+                  child: Icon(
+                    CupertinoIcons.cube,
+                    size: 70,
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
                 ),
               ),
               const SizedBox(height: 50),
