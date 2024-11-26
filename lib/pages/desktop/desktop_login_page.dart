@@ -5,19 +5,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginPage extends StatefulWidget {
+class DesktopLoginPage extends StatefulWidget {
   final Function()? onTap;
 
-  const LoginPage({
+  const DesktopLoginPage({
     super.key,
     required this.onTap,
   });
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<DesktopLoginPage> createState() => _DesktopLoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _DesktopLoginPageState extends State<DesktopLoginPage> {
   final emailTextController = TextEditingController();
   final passwordTextController = TextEditingController();
 

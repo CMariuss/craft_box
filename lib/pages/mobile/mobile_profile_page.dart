@@ -1,19 +1,19 @@
 import 'package:craft_box/components/social_media_box.dart';
 import 'package:craft_box/features/presentation/cubits/auth_cubit.dart';
-import 'package:craft_box/pages/mobile/auth_page.dart';
+import 'package:craft_box/pages/mobile/mobile_auth_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../components/post_container.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+class MobileProfilePage extends StatefulWidget {
+  const MobileProfilePage({super.key});
 
   @override
-  State<ProfilePage> createState() => _ProfilePageState();
+  State<MobileProfilePage> createState() => _MobileProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _MobileProfilePageState extends State<MobileProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +27,7 @@ class _ProfilePageState extends State<ProfilePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const AuthPage(),
+                  builder: (context) => const MobileAuthPage(),
                 ),
               );
             },

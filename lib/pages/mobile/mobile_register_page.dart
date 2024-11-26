@@ -1,56 +1,21 @@
 import 'package:craft_box/components/auth_text_field.dart';
 import 'package:craft_box/components/bottom_button.dart';
-import 'package:craft_box/features/presentation/cubits/auth_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginPage extends StatefulWidget {
+class MobileRegisterPage extends StatefulWidget {
   final Function()? onTap;
 
-  const LoginPage({
-    super.key,
-    required this.onTap,
-  });
+  const MobileRegisterPage({super.key, required this.onTap});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<MobileRegisterPage> createState() => _MobileRegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _MobileRegisterPageState extends State<MobileRegisterPage> {
   final emailTextController = TextEditingController();
   final passwordTextController = TextEditingController();
-
-  // on login button pressed
-  void login() {
-    // get email and password from text fields
-    final String email = emailTextController.text;
-    final String password = passwordTextController.text;
-
-    // get auth cubit
-    final authCubit = context.read<AuthCubit>();
-
-    // check if email and password is empty
-    if (email.isNotEmpty && password.isNotEmpty) {
-      // login
-      authCubit.login(email, password);
-    }
-    // if email or password is empty then display an error
-    else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Please fill both the email and password text fields'),
-        ),
-      );
-    }
-  }
-
-  @override
-  void dispose() {
-    emailTextController.dispose();
-    passwordTextController.dispose();
-    super.dispose();
-  }
+  final repeatPasswordTextController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -68,13 +33,13 @@ class _LoginPageState extends State<LoginPage> {
                 color: Theme.of(context).colorScheme.secondary,
               ),
 
-              const SizedBox(height: 30),
+              const SizedBox(height: 35),
 
               // welcome text
               Text(
-                'Welcome back, let\'s login!',
+                'Hi, let\'s create an account!',
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 15,
                   color: Theme.of(context).colorScheme.secondary,
                 ),
               ),
@@ -99,13 +64,20 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 20),
 
+              // password text field
+              AuthTextField(
+                isHidden: true,
+                controller: repeatPasswordTextController,
+                hintText: 'repeat password . .',
+              ),
+
+              const SizedBox(height: 30),
+
               // login button
               BottomButton(
-                text: 'Login',
+                text: 'Register',
                 color: Colors.deepOrangeAccent,
-                onTap: () {
-                  login();
-                },
+                onTap: () {},
               ),
 
               const SizedBox(height: 40),
@@ -116,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   // text
                   Text(
-                    'Not a member?',
+                    'Have an account?',
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.secondary,
                     ),
@@ -126,10 +98,10 @@ class _LoginPageState extends State<LoginPage> {
 
                   // button
                   GestureDetector(
-                    // go to register page on user tap
+                    // go to login page on user tap
                     onTap: widget.onTap,
                     child: const Text(
-                      'Create an account',
+                      'Login here',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.deepOrangeAccent,

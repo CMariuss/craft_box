@@ -3,16 +3,16 @@ import 'package:craft_box/components/bottom_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class RegisterPage extends StatefulWidget {
+class DesktopRegisterPage extends StatefulWidget {
   final Function()? onTap;
 
-  const RegisterPage({super.key, required this.onTap});
+  const DesktopRegisterPage({super.key, required this.onTap});
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<DesktopRegisterPage> createState() => _DesktopRegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _DesktopRegisterPageState extends State<DesktopRegisterPage> {
   final emailTextController = TextEditingController();
   final passwordTextController = TextEditingController();
   final repeatPasswordTextController = TextEditingController();

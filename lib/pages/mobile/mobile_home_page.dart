@@ -3,14 +3,14 @@ import 'package:craft_box/components/custom_drawer.dart';
 import 'package:craft_box/components/post_container.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class MobileHomePage extends StatefulWidget {
+  const MobileHomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<MobileHomePage> createState() => _MobileHomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _MobileHomePageState extends State<MobileHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

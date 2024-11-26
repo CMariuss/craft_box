@@ -1,9 +1,9 @@
 import 'package:craft_box/features/data/firebase_auth_repo.dart';
 import 'package:craft_box/features/presentation/cubits/auth_cubit.dart';
 import 'package:craft_box/features/presentation/cubits/auth_states.dart';
-import 'package:craft_box/pages/mobile/auth_page.dart';
-import 'package:craft_box/pages/mobile/home_page.dart';
-import 'package:craft_box/pages/mobile/profile_page.dart';
+import 'package:craft_box/pages/mobile/mobile_auth_page.dart';
+import 'package:craft_box/pages/mobile/mobile_home_page.dart';
+import 'package:craft_box/pages/mobile/mobile_profile_page.dart';
 import 'package:craft_box/themes/light_mode.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -50,12 +50,12 @@ class SocialMediaApp extends StatelessWidget {
 
             // if user is not logged in then return the AuthPage - login / register pages
             if (authState is Unauthenticated) {
-              return const AuthPage();
+              return const MobileAuthPage();
             }
 
             // otherwise - the user is logged in - display the home page
             if (authState is Authenticated) {
-              return const HomePage();
+              return const MobileHomePage();
             }
 
             // loading ..
@@ -72,8 +72,8 @@ class SocialMediaApp extends StatelessWidget {
           listener: (context, state) {},
         ),
         routes: {
-          '/profile_page': (context) => const ProfilePage(),
-          '/auth_page': (context) => const AuthPage(),
+          '/profile_page': (context) => const MobileProfilePage(),
+          '/auth_page': (context) => const MobileAuthPage(),
         },
       ),
     );
