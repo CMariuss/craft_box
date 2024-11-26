@@ -1,6 +1,10 @@
+import 'package:craft_box/app.dart';
 import 'package:craft_box/components/social_media_box.dart';
+import 'package:craft_box/features/presentation/cubits/auth_cubit.dart';
+import 'package:craft_box/pages/auth_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../components/post_container.dart';
 
@@ -21,7 +25,13 @@ class _ProfilePageState extends State<ProfilePage> {
           //if the profile belongs to the current user then display log out and edit icons
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/auth_page');
+              context.read<AuthCubit>().logout();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const AuthPage(),
+                ),
+              );
             },
             icon: const Icon(Icons.logout_rounded),
           ),
