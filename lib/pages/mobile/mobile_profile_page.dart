@@ -20,16 +20,6 @@ class _MobileProfilePageState extends State<MobileProfilePage> {
       appBar: AppBar(
         foregroundColor: Theme.of(context).colorScheme.secondary,
         actions: [
-          //if the profile belongs to the current user then display log out and edit icons
-          IconButton(
-            onPressed: () {
-              context.read<AuthCubit>().logout();
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.logout_rounded),
-          ),
-          const SizedBox(width: 8),
-
           IconButton(
             onPressed: () {},
             icon: Icon(

@@ -1,6 +1,9 @@
 import 'package:craft_box/components/drawer_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../features/presentation/cubits/auth_cubit.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -71,6 +74,14 @@ class CustomDrawer extends StatelessWidget {
                       iconSize: 18,
                       onTap: () {},
                     ),
+
+                    // settings
+                    DrawerTile(
+                      icon: Icons.settings,
+                      title: 'Notifications',
+                      iconSize: 22,
+                      onTap: () {},
+                    ),
                   ],
                 ),
               ),
@@ -78,11 +89,15 @@ class CustomDrawer extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 30, bottom: 30),
+            // logout option
             child: DrawerTile(
-              icon: Icons.settings,
-              title: 'Settings',
+              icon: Icons.logout_rounded,
+              title: 'Logout',
               iconSize: 22,
-              onTap: () {},
+              onTap: () {
+                context.read<AuthCubit>().logout();
+                Navigator.pop(context);
+              },
             ),
           )
         ],

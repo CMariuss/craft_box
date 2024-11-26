@@ -16,19 +16,17 @@ class DrawerTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return ListTile(
       onTap: onTap,
-      child: ListTile(
-        leading: Icon(
-          icon,
-          size: iconSize,
-          color: Theme.of(context).colorScheme.tertiary,
-        ),
-        title: Text(
-          title,
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.secondary,
-          ),
+      leading: Icon(
+        icon,
+        size: iconSize,
+        color: Theme.of(context).colorScheme.tertiary,
+      ),
+      title: Text(
+        title,
+        style: TextStyle(
+          color: Theme.of(context).colorScheme.secondary,
         ),
       ),
     );
