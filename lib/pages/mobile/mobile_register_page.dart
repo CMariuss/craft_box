@@ -1,7 +1,10 @@
+import 'package:craft_box/app.dart';
 import 'package:craft_box/components/auth_text_field.dart';
 import 'package:craft_box/components/bottom_button.dart';
+import 'package:craft_box/features/presentation/cubits/auth_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MobileRegisterPage extends StatefulWidget {
   final Function()? onTap;
@@ -17,6 +20,57 @@ class _MobileRegisterPageState extends State<MobileRegisterPage> {
   final emailTextController = TextEditingController();
   final passwordTextController = TextEditingController();
   final repeatPasswordTextController = TextEditingController();
+
+  // on register button tap
+  void register() {
+    // prepare the register information
+    final String name = nameTextController.text;
+    final String email = emailTextController.text;
+    final String password = passwordTextController.text;
+    final String repeatedPassword = repeatPasswordTextController.text;
+
+    // initialize auth cubit
+    final authCubit = context.read<AuthCubit>();
+
+    // ensure that all field aren't empty
+    if (name.isNotEmpty &&
+        email.isNotEmpty &&
+        password.isNotEmpty &&
+        repeatedPassword.isNotEmpty) {
+      // ensure that both password match
+      if (password == repeatedPassword) {
+        // register a new user
+        authCubit.register(name, email, password);
+      }
+
+      // if passwords don't match display an snack bar message
+      else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Passwords don\'t match'),
+          ),
+        );
+      }
+    }
+    // if some fields are empty then display an error
+    else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please fill both the email and password text fields'),
+        ),
+      );
+    }
+  }
+
+  @override
+  void dispose() {
+    nameTextController.dispose();
+    emailTextController.dispose();
+    passwordTextController.dispose();
+    repeatPasswordTextController.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +141,7 @@ class _MobileRegisterPageState extends State<MobileRegisterPage> {
               BottomButton(
                 text: 'Register',
                 color: Colors.deepOrangeAccent,
-                onTap: () {},
+                onTap: register,
               ),
 
               const SizedBox(height: 40),
