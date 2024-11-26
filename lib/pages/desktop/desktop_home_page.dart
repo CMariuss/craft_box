@@ -1,6 +1,7 @@
 import 'package:craft_box/components/desktop/desktop_drawer.dart';
 import 'package:craft_box/components/desktop/desktop_home_app_bar.dart';
 import 'package:craft_box/components/desktop/desktop_post_container.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/custom_app_bar.dart';
@@ -17,7 +18,28 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const DesktopHomeAppBar(),
+      appBar: DesktopHomeAppBar(
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              CupertinoIcons.add,
+              color: Theme.of(context).colorScheme.tertiary,
+            ),
+          ),
+          const SizedBox(width: 20),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.chat_outlined,
+              size: 22,
+              color: Theme.of(context).colorScheme.tertiary,
+            ),
+          ),
+          const SizedBox(width: 20),
+        ],
+        onBoxPressed: () {},
+      ),
       body: Row(
         children: [
           // visible drawer
@@ -46,6 +68,7 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                     postDateTime: 'Today, 10:46',
                     isUserPost: true,
                     hasLike: true,
+                    postWidth: 600,
                   ),
 
                   SizedBox(height: 30),
@@ -60,6 +83,7 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                     postDateTime: 'Today, 10:30',
                     isUserPost: false,
                     hasLike: false,
+                    postWidth: 600,
                   ),
 
                   SizedBox(height: 40),

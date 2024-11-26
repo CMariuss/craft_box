@@ -10,6 +10,7 @@ class DesktopPostContainer extends StatelessWidget {
   final String postDateTime;
   final bool isUserPost;
   final bool hasLike;
+  final double postWidth;
 
   const DesktopPostContainer({
     super.key,
@@ -21,6 +22,7 @@ class DesktopPostContainer extends StatelessWidget {
     required this.postDateTime,
     required this.isUserPost,
     required this.hasLike,
+    required this.postWidth,
   });
 
   @override
@@ -32,7 +34,7 @@ class DesktopPostContainer extends StatelessWidget {
         children: [
           // post author
           SizedBox(
-            width: 600,
+            width: postWidth,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -79,7 +81,7 @@ class DesktopPostContainer extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             child: Image.asset(
               imagePath,
-              width: 600,
+              width: postWidth,
             ),
           ),
 
@@ -113,7 +115,7 @@ class DesktopPostContainer extends StatelessWidget {
 
           // post actions
           SizedBox(
-            width: 600,
+            width: postWidth,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

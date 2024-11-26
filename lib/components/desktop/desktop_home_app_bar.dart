@@ -3,7 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DesktopHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const DesktopHomeAppBar({super.key});
+  final List<Widget> actions;
+  final Function()? onBoxPressed;
+
+  const DesktopHomeAppBar({
+    super.key,
+    required this.actions,
+    required this.onBoxPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +23,7 @@ class DesktopHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             CupertinoIcons.cube,
             size: 26,
           ),
-          onPressed: () {
-            Scaffold.of(context).openDrawer();
-          },
+          onPressed: onBoxPressed,
         ),
       ),
       title: const SizedBox(
@@ -26,25 +31,7 @@ class DesktopHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         height: 40,
         child: AppBarTextField(),
       ),
-      actions: [
-        IconButton(
-          onPressed: () {},
-          icon: Icon(
-            CupertinoIcons.add,
-            color: Theme.of(context).colorScheme.tertiary,
-          ),
-        ),
-        const SizedBox(width: 20),
-        IconButton(
-          onPressed: () {},
-          icon: Icon(
-            Icons.chat_outlined,
-            size: 22,
-            color: Theme.of(context).colorScheme.tertiary,
-          ),
-        ),
-        const SizedBox(width: 20),
-      ],
+      actions: actions,
     );
   }
 
