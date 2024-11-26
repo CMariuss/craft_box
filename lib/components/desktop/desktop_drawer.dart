@@ -97,9 +97,8 @@ class DesktopDrawer extends StatelessWidget {
             icon: Icons.logout_rounded,
             title: 'Logout',
             iconSize: 22,
-            onTap: () {
-              context.read<AuthCubit>().logout();
-              // Navigator.pop(context);
+            onTap: () async {
+              await context.read<AuthCubit>().logout();
             },
           ),
         ),
