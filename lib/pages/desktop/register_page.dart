@@ -1,6 +1,5 @@
 import 'package:craft_box/components/auth_text_field.dart';
 import 'package:craft_box/components/bottom_button.dart';
-import 'package:craft_box/pages/login_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

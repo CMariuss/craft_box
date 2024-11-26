@@ -1,9 +1,9 @@
 import 'package:craft_box/features/data/firebase_auth_repo.dart';
 import 'package:craft_box/features/presentation/cubits/auth_cubit.dart';
 import 'package:craft_box/features/presentation/cubits/auth_states.dart';
-import 'package:craft_box/pages/auth_page.dart';
-import 'package:craft_box/pages/home_page.dart';
-import 'package:craft_box/pages/profile_page.dart';
+import 'package:craft_box/pages/mobile/auth_page.dart';
+import 'package:craft_box/pages/mobile/home_page.dart';
+import 'package:craft_box/pages/mobile/profile_page.dart';
 import 'package:craft_box/themes/light_mode.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

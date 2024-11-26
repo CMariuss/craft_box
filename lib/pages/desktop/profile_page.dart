@@ -1,12 +1,10 @@
-import 'package:craft_box/app.dart';
 import 'package:craft_box/components/social_media_box.dart';
 import 'package:craft_box/features/presentation/cubits/auth_cubit.dart';
-import 'package:craft_box/pages/auth_page.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:craft_box/pages/mobile/auth_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../components/post_container.dart';
+import '../../components/post_container.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
