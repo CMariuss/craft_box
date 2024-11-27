@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../features/presentation/cubits/auth_cubit.dart';
+import '../../../features/presentation/cubits/auth_cubit.dart';
 
 class DesktopRegisterPage extends StatefulWidget {
   final Function()? onTap;

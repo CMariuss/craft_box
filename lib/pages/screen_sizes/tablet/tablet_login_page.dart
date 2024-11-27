@@ -1,60 +1,33 @@
 import 'package:craft_box/components/auth_text_field.dart';
 import 'package:craft_box/components/bottom_button.dart';
-import 'package:craft_box/features/presentation/cubits/auth_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MobileLoginPage extends StatefulWidget {
-  final Function()? onTap;
+class TabletLoginPage extends StatefulWidget {
+  final Function()? onLoginTap;
+  final Function()? onRegisterTap;
+  final TextEditingController emailTextController;
+  final TextEditingController passwordTextController;
 
-  const MobileLoginPage({
+  const TabletLoginPage({
     super.key,
-    required this.onTap,
+    required this.onLoginTap,
+    required this.onRegisterTap,
+    required this.emailTextController,
+    required this.passwordTextController,
   });
 
   @override
-  State<MobileLoginPage> createState() => _MobileLoginPageState();
+  State<TabletLoginPage> createState() => _TabletLoginPageState();
 }
 
-class _MobileLoginPageState extends State<MobileLoginPage> {
-  final emailTextController = TextEditingController();
-  final passwordTextController = TextEditingController();
-
-  // on login button pressed
-  void login() {
-    // get email and password from text fields
-    final String email = emailTextController.text;
-    final String password = passwordTextController.text;
-
-    // get auth cubit
-    final authCubit = context.read<AuthCubit>();
-
-    // check if email and password is empty
-    if (email.isNotEmpty && password.isNotEmpty) {
-      // login
-      authCubit.login(email, password);
-    }
-    // if email or password is empty then display an error
-    else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Please fill both the email and password text fields'),
-        ),
-      );
-    }
-  }
-
-  @override
-  void dispose() {
-    emailTextController.dispose();
-    passwordTextController.dispose();
-    super.dispose();
-  }
-
+class _TabletLoginPageState extends State<TabletLoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Tablet Login'),
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -84,7 +57,7 @@ class _MobileLoginPageState extends State<MobileLoginPage> {
               // email text field
               AuthTextField(
                 isHidden: false,
-                controller: emailTextController,
+                controller: widget.emailTextController,
                 hintText: 'email . .',
               ),
 
@@ -93,7 +66,7 @@ class _MobileLoginPageState extends State<MobileLoginPage> {
               // password text field
               AuthTextField(
                 isHidden: true,
-                controller: passwordTextController,
+                controller: widget.passwordTextController,
                 hintText: 'password . .',
               ),
 
@@ -103,9 +76,7 @@ class _MobileLoginPageState extends State<MobileLoginPage> {
               BottomButton(
                 text: 'Login',
                 color: Colors.deepOrangeAccent,
-                onTap: () {
-                  login();
-                },
+                onTap: widget.onLoginTap,
               ),
 
               const SizedBox(height: 40),
@@ -127,7 +98,7 @@ class _MobileLoginPageState extends State<MobileLoginPage> {
                   // button
                   GestureDetector(
                     // go to register page on user tap
-                    onTap: widget.onTap,
+                    onTap: widget.onRegisterTap,
                     child: const Text(
                       'Create an account',
                       style: TextStyle(

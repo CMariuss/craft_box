@@ -1,14 +1,9 @@
 import 'package:craft_box/features/data/firebase_auth_repo.dart';
 import 'package:craft_box/features/presentation/cubits/auth_cubit.dart';
 import 'package:craft_box/features/presentation/cubits/auth_states.dart';
-import 'package:craft_box/pages/desktop/desktop_auth_page.dart';
-import 'package:craft_box/pages/desktop/desktop_home_page.dart';
-import 'package:craft_box/pages/mobile/mobile_auth_page.dart';
-import 'package:craft_box/pages/mobile/mobile_home_page.dart';
-import 'package:craft_box/pages/mobile/mobile_profile_page.dart';
-import 'package:craft_box/pages/tablet/tablet_auth_page.dart';
-import 'package:craft_box/pages/tablet/tablet_home_page.dart';
-import 'package:craft_box/services/screen_size_service.dart';
+import 'package:craft_box/pages/auth_page.dart';
+import 'package:craft_box/pages/home_page.dart';
+import 'package:craft_box/pages/screen_sizes/mobile/mobile_profile_page.dart';
 import 'package:craft_box/themes/light_mode.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -55,22 +50,12 @@ class SocialMediaApp extends StatelessWidget {
 
             // if user is not logged in then return the AuthPage - login / register pages
             if (authState is Unauthenticated) {
-              return ScreenSizeService.getScreen(
-                [
-                  const MobileAuthPage(),
-                  const TabletAuthPage(),
-                  const DesktopAuthPage(),
-                ],
-              );
+              return const AuthPage();
             }
 
             // otherwise - the user is logged in - display the home page
             if (authState is Authenticated) {
-              return ScreenSizeService.getScreen([
-                const MobileHomePage(),
-                const TabletHomePage(),
-                const DesktopHomePage(),
-              ]);
+              return const HomePage();
             }
 
             // loading ..
@@ -96,7 +81,6 @@ class SocialMediaApp extends StatelessWidget {
         ),
         routes: {
           '/profile_page': (context) => const MobileProfilePage(),
-          '/auth_page': (context) => const MobileAuthPage(),
         },
       ),
     );

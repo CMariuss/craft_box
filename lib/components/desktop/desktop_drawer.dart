@@ -1,15 +1,9 @@
-import 'package:craft_box/pages/desktop/desktop_profile_page.dart';
-import 'package:craft_box/pages/mobile/mobile_profile_page.dart';
-import 'package:craft_box/pages/tablet/tablet_profile_page.dart';
+import 'package:craft_box/pages/profile_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/presentation/cubits/auth_cubit.dart';
-import '../../pages/desktop/desktop_home_page.dart';
-import '../../pages/mobile/mobile_home_page.dart';
-import '../../pages/tablet/tablet_home_page.dart';
-import '../../services/screen_size_service.dart';
 import '../drawer_tile.dart';
 
 class DesktopDrawer extends StatelessWidget {
@@ -38,13 +32,7 @@ class DesktopDrawer extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => ScreenSizeService.getScreen(
-                      [
-                        const MobileProfilePage(),
-                        const TabletProfilePage(),
-                        const DesktopProfilePage(),
-                      ],
-                    ),
+                    builder: (context) => const ProfilePage(),
                   ),
                 );
               },

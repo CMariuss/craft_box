@@ -4,9 +4,6 @@ import 'package:craft_box/components/desktop/desktop_post_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../components/custom_app_bar.dart';
-import '../../components/drawer_tile.dart';
-
 class DesktopHomePage extends StatefulWidget {
   const DesktopHomePage({super.key});
 

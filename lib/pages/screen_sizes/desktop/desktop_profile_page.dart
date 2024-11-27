@@ -1,17 +1,9 @@
 import 'package:craft_box/components/desktop/desktop_home_app_bar.dart';
 import 'package:craft_box/components/desktop/desktop_post_container.dart';
 import 'package:craft_box/components/social_media_box.dart';
-import 'package:craft_box/features/presentation/cubits/auth_cubit.dart';
-import 'package:craft_box/pages/desktop/desktop_home_page.dart';
-import 'package:craft_box/pages/mobile/mobile_auth_page.dart';
+import 'package:craft_box/pages/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../components/post_container.dart';
-import '../../services/screen_size_service.dart';
-import '../mobile/mobile_home_page.dart';
-import '../tablet/tablet_home_page.dart';
 
 class DesktopProfilePage extends StatefulWidget {
   const DesktopProfilePage({super.key});
@@ -56,13 +48,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => ScreenSizeService.getScreen(
-                [
-                  const MobileHomePage(),
-                  const TabletHomePage(),
-                  const DesktopHomePage(),
-                ],
-              ),
+              builder: (context) => const HomePage(),
             ),
           );
         },

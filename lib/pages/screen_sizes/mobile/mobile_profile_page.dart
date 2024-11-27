@@ -1,40 +1,22 @@
 import 'package:craft_box/components/social_media_box.dart';
-import 'package:craft_box/features/presentation/cubits/auth_cubit.dart';
-import 'package:craft_box/pages/mobile/mobile_auth_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../components/post_container.dart';
+import '../../../components/post_container.dart';
 
-class TabletProfilePage extends StatefulWidget {
-  const TabletProfilePage({super.key});
+class MobileProfilePage extends StatefulWidget {
+  const MobileProfilePage({super.key});
 
   @override
-  State<TabletProfilePage> createState() => _TabletProfilePageState();
+  State<MobileProfilePage> createState() => _MobileProfilePageState();
 }
 
-class _TabletProfilePageState extends State<TabletProfilePage> {
+class _MobileProfilePageState extends State<MobileProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         foregroundColor: Theme.of(context).colorScheme.secondary,
         actions: [
-          //if the profile belongs to the current user then display log out and edit icons
-          IconButton(
-            onPressed: () {
-              context.read<AuthCubit>().logout();
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const MobileAuthPage(),
-                ),
-              );
-            },
-            icon: const Icon(Icons.logout_rounded),
-          ),
-          const SizedBox(width: 8),
-
           IconButton(
             onPressed: () {},
             icon: Icon(
