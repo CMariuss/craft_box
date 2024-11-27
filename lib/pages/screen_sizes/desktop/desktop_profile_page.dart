@@ -279,7 +279,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
                             ),
                           ),
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ),

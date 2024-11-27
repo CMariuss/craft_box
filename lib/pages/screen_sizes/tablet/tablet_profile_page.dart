@@ -1,3 +1,4 @@
+import 'package:craft_box/components/desktop/desktop_post_container.dart';
 import 'package:craft_box/components/social_media_box.dart';
 import 'package:craft_box/features/presentation/cubits/auth_cubit.dart';
 import 'package:craft_box/pages/auth_page.dart';
@@ -47,182 +48,240 @@ class _TabletProfilePageState extends State<TabletProfilePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: ListView(
-          shrinkWrap: true,
+        child: Row(
           children: [
-            Column(
-              children: [
-                const SizedBox(height: 30),
+            const SizedBox(height: 30),
 
-                // profile photo
-                CircleAvatar(
-                  radius: 70,
-                  backgroundImage:
-                      Image.asset('images/profile/profile_01.jpg').image,
-                ),
-
-                const SizedBox(height: 20),
-
-                // profile name
-                Text(
-                  'Mary Jones',
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).colorScheme.secondary,
-                  ),
-                ),
-
-                const SizedBox(height: 25),
-
-                // profile description
-                Text(
-                  textAlign: TextAlign.center,
-                  'Crocheting is what I love to do',
-                  style: TextStyle(
-                      fontSize: 15,
-                      color: Theme.of(context).colorScheme.secondary),
-                ),
-
-                const SizedBox(height: 20),
-
-                // details
-                Row(
+            // user information
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // location
-                    Row(
-                      children: [
-                        // location icon
-                        Icon(
-                          Icons.location_on_outlined,
-                          size: 16,
-                          color: Theme.of(context).colorScheme.secondary,
-                        ),
-
-                        const SizedBox(width: 5),
-
-                        // location name
-                        Text(
-                          'France',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Theme.of(context).colorScheme.secondary,
-                          ),
-                        ),
-                      ],
+                    // profile photo
+                    CircleAvatar(
+                      radius: 70,
+                      backgroundImage:
+                          Image.asset('images/profile/profile_01.jpg').image,
                     ),
 
-                    const SizedBox(width: 20),
+                    const SizedBox(height: 20),
 
-                    // spoken languages
-                    Row(
-                      children: [
-                        // location icon
-                        Icon(
-                          Icons.language,
-                          size: 16,
-                          color: Theme.of(context).colorScheme.secondary,
-                        ),
-
-                        const SizedBox(width: 5),
-
-                        // location name
-                        Text(
-                          'French, English',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Theme.of(context).colorScheme.secondary,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 30),
-
-                // contacts
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // message
-                    SocialMediaBox(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 12,
+                    // profile name
+                    Text(
+                      'Mary Jones',
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).colorScheme.secondary,
                       ),
-                      child: Row(
-                        children: [
-                          // message icon
-                          Icon(
-                            Icons.chat_outlined,
-                            size: 18,
-                            color: Theme.of(context).colorScheme.secondary,
-                          ),
+                    ),
 
-                          const SizedBox(width: 10),
+                    const SizedBox(height: 25),
 
-                          // text
-                          Text(
-                            'Message',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
+                    // profile description - bio
+                    Text(
+                      textAlign: TextAlign.center,
+                      'Crocheting is what I love to do',
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: Theme.of(context).colorScheme.secondary),
+                    ),
+
+                    const SizedBox(height: 20),
+
+                    // user details
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        // location
+                        Row(
+                          children: [
+                            // location icon
+                            Icon(
+                              Icons.location_on_outlined,
+                              size: 16,
                               color: Theme.of(context).colorScheme.secondary,
                             ),
+
+                            const SizedBox(width: 5),
+
+                            // location name
+                            Text(
+                              'France',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Theme.of(context).colorScheme.secondary,
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        const SizedBox(height: 5),
+
+                        // spoken languages
+                        Row(
+                          children: [
+                            // location icon
+                            Icon(
+                              Icons.language,
+                              size: 16,
+                              color: Theme.of(context).colorScheme.secondary,
+                            ),
+
+                            const SizedBox(width: 5),
+
+                            // location name
+                            Text(
+                              'French, English',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Theme.of(context).colorScheme.secondary,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+
+                    const SizedBox(height: 30),
+
+                    // contacts
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        // message
+                        SocialMediaBox(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 12,
                           ),
-                        ],
-                      ),
-                    ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              // message icon
+                              Icon(
+                                Icons.chat_outlined,
+                                size: 18,
+                                color: Theme.of(context).colorScheme.secondary,
+                              ),
 
-                    const SizedBox(width: 10),
+                              const SizedBox(width: 10),
 
-                    // social media list (facebook, x, instagram)
-                    SocialMediaBox(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 12, vertical: 12),
-                      child: Image(
-                        width: 22,
-                        color: Theme.of(context).colorScheme.secondary,
-                        image: Image.asset(
-                          'icons/profile/facebook_icon.png',
-                          // color: Colors.white,
-                        ).image,
-                      ),
-                    ),
+                              // text
+                              Text(
+                                'Message',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
 
-                    const SizedBox(width: 10),
+                        const SizedBox(height: 10),
 
-                    SocialMediaBox(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 12, vertical: 12),
-                      child: Image(
-                        width: 22,
-                        color: Theme.of(context).colorScheme.secondary,
-                        image: Image.asset(
-                          'icons/profile/instagram_icon.png',
-                          // color: Colors.white,
-                        ).image,
-                      ),
+                        // facebook
+                        SocialMediaBox(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 12),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image(
+                                width: 22,
+                                color: Theme.of(context).colorScheme.secondary,
+                                image: Image.asset(
+                                  'icons/profile/facebook_icon.png',
+                                  // color: Colors.white,
+                                ).image,
+                              ),
+
+                              const SizedBox(width: 10),
+
+                              // text
+                              Text(
+                                'Facebook',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        const SizedBox(height: 10),
+
+                        // instagram
+                        SocialMediaBox(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 12),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image(
+                                width: 22,
+                                color: Theme.of(context).colorScheme.secondary,
+                                image: Image.asset(
+                                  'icons/profile/instagram_icon.png',
+                                  // color: Colors.white,
+                                ).image,
+                              ),
+
+                              const SizedBox(width: 10),
+
+                              // text
+                              Text(
+                                'Instagram',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
+              ),
+            ),
 
-                const SizedBox(height: 30),
+            // post list on right side
+            Expanded(
+              flex: 2,
+              child: ListView(
+                shrinkWrap: true,
+                children: const [
+                  // posts
+                  DesktopPostContainer(
+                    userName: 'Mary Johns',
+                    imagePath: 'images/crocheted_pillow.jpg',
+                    profilePhoto: 'images/profile/profile_01.jpg',
+                    postTitle: 'Crocheted pillow',
+                    postDescription: 'Handmade crocheted pillow',
+                    postDateTime: 'Today, 10:46',
+                    isUserPost: true,
+                    hasLike: true,
+                    postWidth: 800,
+                  ),
 
-                // posts
-                const PostContainer(
-                  userName: 'Mary Johns',
-                  imagePath: 'images/crocheted_pillow.jpg',
-                  profilePhoto: 'images/profile/profile_01.jpg',
-                  postTitle: 'Crocheted pillow',
-                  postDescription: 'Handmade crocheted pillow',
-                  postDateTime: 'Today, 10:46',
-                  isUserPost: true,
-                  hasLike: true,
-                ),
-              ],
+                  SizedBox(height: 30),
+                ],
+              ),
             )
           ],
         ),
