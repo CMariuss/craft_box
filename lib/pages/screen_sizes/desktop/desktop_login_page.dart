@@ -22,6 +22,8 @@ class DesktopLoginPage extends StatefulWidget {
 }
 
 class _DesktopLoginPageState extends State<DesktopLoginPage> {
+  final double fieldsWidth = 350;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +57,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
 
                 // email text field
                 SizedBox(
-                  width: 400,
+                  width: fieldsWidth,
                   child: AuthTextField(
                     isHidden: false,
                     controller: widget.emailTextController,
@@ -67,7 +69,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
 
                 // password text field
                 SizedBox(
-                  width: 400,
+                  width: fieldsWidth,
                   child: AuthTextField(
                     isHidden: true,
                     controller: widget.passwordTextController,
@@ -79,7 +81,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
 
                 // login button
                 SizedBox(
-                  width: 400,
+                  width: fieldsWidth,
                   child: BottomButton(
                     text: 'Login',
                     color: Colors.deepOrangeAccent,

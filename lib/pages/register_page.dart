@@ -16,7 +16,7 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenAdapt(
       mobileScaffold: MobileRegisterPage(onTap: onTap),
-      tabletScaffold: TabletRegisterPage(onTap: onTap),
+      tabletScaffold: DesktopRegisterPage(onTap: onTap),
       desktopScaffold: DesktopRegisterPage(onTap: onTap),
     );
   }

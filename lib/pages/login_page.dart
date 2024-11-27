@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
         emailTextController: emailTextController,
         passwordTextController: passwordTextController,
       ),
-      tabletScaffold: TabletLoginPage(
+      tabletScaffold: DesktopLoginPage(
         onLoginTap: login,
         onRegisterTap: widget.onRegisterTap,
         emailTextController: emailTextController,

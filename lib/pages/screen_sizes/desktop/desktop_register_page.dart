@@ -20,6 +20,7 @@ class _DesktopRegisterPageState extends State<DesktopRegisterPage> {
   final emailTextController = TextEditingController();
   final passwordTextController = TextEditingController();
   final repeatPasswordTextController = TextEditingController();
+  final double fieldsWidth = 350;
 
   // on register button tap
   void register() {
@@ -93,7 +94,7 @@ class _DesktopRegisterPageState extends State<DesktopRegisterPage> {
 
               // name text field
               SizedBox(
-                width: 400,
+                width: fieldsWidth,
                 child: AuthTextField(
                   isHidden: false,
                   controller: nameTextController,
@@ -105,7 +106,7 @@ class _DesktopRegisterPageState extends State<DesktopRegisterPage> {
 
               // email text field
               SizedBox(
-                width: 400,
+                width: fieldsWidth,
                 child: AuthTextField(
                   isHidden: false,
                   controller: emailTextController,
@@ -117,7 +118,7 @@ class _DesktopRegisterPageState extends State<DesktopRegisterPage> {
 
               // password text field
               SizedBox(
-                width: 400,
+                width: fieldsWidth,
                 child: AuthTextField(
                   isHidden: true,
                   controller: passwordTextController,
@@ -129,7 +130,7 @@ class _DesktopRegisterPageState extends State<DesktopRegisterPage> {
 
               // password text field
               SizedBox(
-                width: 400,
+                width: fieldsWidth,
                 child: AuthTextField(
                   isHidden: true,
                   controller: repeatPasswordTextController,
@@ -141,7 +142,7 @@ class _DesktopRegisterPageState extends State<DesktopRegisterPage> {
 
               // login button
               SizedBox(
-                width: 400,
+                width: fieldsWidth,
                 child: BottomButton(
                   text: 'Register',
                   color: Colors.deepOrangeAccent,
