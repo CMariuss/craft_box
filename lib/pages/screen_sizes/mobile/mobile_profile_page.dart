@@ -1,10 +1,17 @@
 import 'package:craft_box/components/social_media_box.dart';
+import 'package:craft_box/features/domain/entities/app_user.dart';
+import 'package:craft_box/features/profile/domain/entities/profile_user.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/post_container.dart';
 
 class MobileProfilePage extends StatefulWidget {
-  const MobileProfilePage({super.key});
+  final ProfileUser? user;
+
+  const MobileProfilePage({
+    super.key,
+    required this.user,
+  });
 
   @override
   State<MobileProfilePage> createState() => _MobileProfilePageState();
@@ -47,7 +54,7 @@ class _MobileProfilePageState extends State<MobileProfilePage> {
 
                 // profile name
                 Text(
-                  'Mary Jones',
+                  widget.user!.name,
                   style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
@@ -55,16 +62,22 @@ class _MobileProfilePageState extends State<MobileProfilePage> {
                   ),
                 ),
 
-                const SizedBox(height: 25),
+                widget.user!.bio != ''
+                    ? Column(
+                        children: [
+                          const SizedBox(height: 25),
 
-                // profile description
-                Text(
-                  textAlign: TextAlign.center,
-                  'Crocheting is what I love to do',
-                  style: TextStyle(
-                      fontSize: 15,
-                      color: Theme.of(context).colorScheme.secondary),
-                ),
+                          // profile description
+                          Text(
+                            textAlign: TextAlign.center,
+                            widget.user!.bio,
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Theme.of(context).colorScheme.secondary),
+                          ),
+                        ],
+                      )
+                    : const SizedBox(),
 
                 const SizedBox(height: 20),
 

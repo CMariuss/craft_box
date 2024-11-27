@@ -1,6 +1,8 @@
 import 'package:craft_box/features/data/firebase_auth_repo.dart';
 import 'package:craft_box/features/presentation/cubits/auth_cubit.dart';
 import 'package:craft_box/features/presentation/cubits/auth_states.dart';
+import 'package:craft_box/features/profile/data/firebase_profile_repo.dart';
+import 'package:craft_box/features/profile/presentation/cubits/profile_cubit.dart';
 import 'package:craft_box/pages/auth_page.dart';
 import 'package:craft_box/pages/home_page.dart';
 import 'package:craft_box/pages/screen_sizes/mobile/mobile_profile_page.dart';
@@ -35,12 +37,26 @@ class SocialMediaApp extends StatelessWidget {
   // get the auth repository
   final authRepo = FirebaseAuthRepo();
 
+  // get the profile repository
+  final profileRepo = FirebaseProfileRepo();
+
   SocialMediaApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AuthCubit(authRepo: authRepo)..checkAuth(),
+    // provide the cubits to the app
+    return MultiBlocProvider(
+      providers: [
+        // auth cubit
+        BlocProvider<AuthCubit>(
+          create: (context) => AuthCubit(authRepo: authRepo)..checkAuth(),
+        ),
+
+        // profile cubit
+        BlocProvider<ProfileCubit>(
+          create: (context) => ProfileCubit(profileRepo: profileRepo),
+        ),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: lightMode,
@@ -79,9 +95,6 @@ class SocialMediaApp extends StatelessWidget {
             }
           },
         ),
-        routes: {
-          '/profile_page': (context) => const MobileProfilePage(),
-        },
       ),
     );
   }

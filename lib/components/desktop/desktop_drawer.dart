@@ -28,11 +28,17 @@ class DesktopDrawer extends StatelessWidget {
                 // close drawer
                 Navigator.pop(context);
 
+                // get current user id
+                final currentUser = context.read<AuthCubit>().currentUser;
+                String? userId = currentUser!.userId;
+
                 // go to profile page
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const ProfilePage(),
+                    builder: (context) => ProfilePage(
+                      userId: userId,
+                    ),
                   ),
                 );
               },

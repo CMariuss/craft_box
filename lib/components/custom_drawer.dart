@@ -1,4 +1,5 @@
 import 'package:craft_box/components/drawer_tile.dart';
+import 'package:craft_box/pages/profile_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -46,8 +47,20 @@ class CustomDrawer extends StatelessWidget {
                         // close drawer
                         Navigator.pop(context);
 
+                        // get current user id
+                        final currentUser =
+                            context.read<AuthCubit>().currentUser;
+                        String? userId = currentUser!.userId;
+
                         // go to profile page
-                        Navigator.pushNamed(context, '/profile_page');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProfilePage(
+                              userId: userId,
+                            ),
+                          ),
+                        );
                       },
                     ),
 
