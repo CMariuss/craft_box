@@ -29,7 +29,9 @@ class DesktopHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: const SizedBox(
         width: 300,
         height: 40,
-        child: AppBarTextField(),
+        child: AppBarTextField(
+          hintText: 'search . .',
+        ),
       ),
       actions: actions,
     );

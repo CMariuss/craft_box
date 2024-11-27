@@ -7,10 +7,12 @@ import '../../../components/post_container.dart';
 
 class MobileProfilePage extends StatefulWidget {
   final ProfileUser? user;
+  final Function()? onEditPressed;
 
   const MobileProfilePage({
     super.key,
     required this.user,
+    required this.onEditPressed,
   });
 
   @override
@@ -25,7 +27,7 @@ class _MobileProfilePageState extends State<MobileProfilePage> {
         foregroundColor: Theme.of(context).colorScheme.secondary,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: widget.onEditPressed,
             icon: Icon(
               Icons.edit_outlined,
               color: Theme.of(context).colorScheme.secondary,

@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
 
-class AppBarTextField extends StatelessWidget {
-  final String hintText;
-
-  const AppBarTextField({
-    super.key,
-    required this.hintText,
-  });
+class CustomTextField extends StatelessWidget {
+  const CustomTextField({super.key});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       style: const TextStyle(fontSize: 15),
-      cursorColor: Theme.of(context).colorScheme.secondary,
       decoration: InputDecoration(
-        hintText: hintText,
+        hintText: 'new bio . .',
         hintStyle: TextStyle(
           color: Theme.of(context).colorScheme.secondary,
         ),
@@ -26,5 +20,6 @@ class AppBarTextField extends StatelessWidget {
         ),
       ),
     );
+    ;
   }
 }

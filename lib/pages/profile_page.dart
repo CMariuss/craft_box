@@ -2,6 +2,7 @@ import 'package:craft_box/features/domain/entities/app_user.dart';
 import 'package:craft_box/features/presentation/cubits/auth_cubit.dart';
 import 'package:craft_box/features/profile/presentation/cubits/profile_cubit.dart';
 import 'package:craft_box/features/profile/presentation/cubits/profile_states.dart';
+import 'package:craft_box/pages/edit_profile_page.dart';
 import 'package:craft_box/pages/screen_adapt.dart';
 import 'package:craft_box/pages/screen_sizes/desktop/desktop_profile_page.dart';
 import 'package:craft_box/pages/screen_sizes/mobile/mobile_profile_page.dart';
@@ -31,6 +32,16 @@ class _ProfilePageState extends State<ProfilePage> {
   // get current user
   late AppUser? currentUser = authCubit.currentUser;
 
+  // on edit button pressed
+  void goToEditProfilePage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const EditProfilePage(),
+      ),
+    );
+  }
+
   // load the user profile on startup
   @override
   void initState() {
@@ -53,6 +64,7 @@ class _ProfilePageState extends State<ProfilePage> {
           return ScreenAdapt(
             mobileScaffold: MobileProfilePage(
               user: loadedUser,
+              onEditPressed: goToEditProfilePage,
             ),
             tabletScaffold: const TabletProfilePage(),
             desktopScaffold: const DesktopProfilePage(),
