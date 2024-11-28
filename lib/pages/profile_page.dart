@@ -66,8 +66,12 @@ class _ProfilePageState extends State<ProfilePage> {
               user: loadedUser,
               onEditPressed: goToEditProfilePage,
             ),
-            tabletScaffold: const TabletProfilePage(),
-            desktopScaffold: const DesktopProfilePage(),
+            tabletScaffold: TabletProfilePage(
+              user: loadedUser,
+            ),
+            desktopScaffold: DesktopProfilePage(
+              user: loadedUser,
+            ),
           );
         }
 

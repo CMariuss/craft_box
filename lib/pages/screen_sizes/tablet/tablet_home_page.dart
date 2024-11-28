@@ -76,6 +76,8 @@ class _TabletHomePageState extends State<TabletHomePage> {
                     isUserPost: false,
                     hasLike: false,
                   ),
+
+                  SizedBox(height: 30),
                 ],
               ),
             ),

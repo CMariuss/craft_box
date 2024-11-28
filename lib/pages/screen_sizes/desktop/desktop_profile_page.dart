@@ -5,8 +5,15 @@ import 'package:craft_box/pages/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../features/profile/domain/entities/profile_user.dart';
+
 class DesktopProfilePage extends StatefulWidget {
-  const DesktopProfilePage({super.key});
+  final ProfileUser? user;
+
+  const DesktopProfilePage({
+    super.key,
+    required this.user,
+  });
 
   @override
   State<DesktopProfilePage> createState() => _DesktopProfilePageState();
@@ -86,7 +93,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
                             children: [
                               // profile name
                               Text(
-                                'Mary Johns',
+                                widget.user!.name,
                                 style: TextStyle(
                                   fontSize: 35,
                                   fontWeight: FontWeight.bold,
@@ -100,7 +107,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
                               // profile description - bio
                               Text(
                                 textAlign: TextAlign.center,
-                                'Crocheting is what I love to do',
+                                widget.user!.bio,
                                 style: TextStyle(
                                     fontSize: 15,
                                     color: Theme.of(context)

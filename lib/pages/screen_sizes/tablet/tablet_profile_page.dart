@@ -2,13 +2,19 @@ import 'package:craft_box/components/desktop/desktop_post_container.dart';
 import 'package:craft_box/components/social_media_box.dart';
 import 'package:craft_box/features/presentation/cubits/auth_cubit.dart';
 import 'package:craft_box/pages/auth_page.dart';
+import 'package:craft_box/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../components/post_container.dart';
+import '../../../features/profile/domain/entities/profile_user.dart';
 
 class TabletProfilePage extends StatefulWidget {
-  const TabletProfilePage({super.key});
+  final ProfileUser? user;
+
+  const TabletProfilePage({
+    super.key,
+    required this.user,
+  });
 
   @override
   State<TabletProfilePage> createState() => _TabletProfilePageState();
@@ -20,6 +26,20 @@ class _TabletProfilePageState extends State<TabletProfilePage> {
     return Scaffold(
       appBar: AppBar(
         foregroundColor: Theme.of(context).colorScheme.secondary,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HomePage(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.arrow_back_ios_new),
+          ),
+        ),
         actions: [
           //if the profile belongs to the current user then display log out and edit icons
           IconButton(
@@ -72,7 +92,7 @@ class _TabletProfilePageState extends State<TabletProfilePage> {
 
                     // profile name
                     Text(
-                      'Mary Jones',
+                      widget.user!.name,
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
@@ -85,7 +105,7 @@ class _TabletProfilePageState extends State<TabletProfilePage> {
                     // profile description - bio
                     Text(
                       textAlign: TextAlign.center,
-                      'Crocheting is what I love to do',
+                      widget.user!.bio,
                       style: TextStyle(
                           fontSize: 15,
                           color: Theme.of(context).colorScheme.secondary),
@@ -277,7 +297,7 @@ class _TabletProfilePageState extends State<TabletProfilePage> {
                     postDateTime: 'Today, 10:46',
                     isUserPost: true,
                     hasLike: true,
-                    postWidth: 800,
+                    postWidth: 600,
                   ),
 
                   SizedBox(height: 30),
