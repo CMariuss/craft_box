@@ -55,13 +55,15 @@ class ProfileCubit extends Cubit<ProfileStates> {
 
       // update the profile
       final updatedProfile =
-          currentUser.copyWith(newBio: newBio ?? currentUser.profilePictureUrl);
+          currentUser.copyWith(newBio: newBio ?? currentUser.bio);
 
       // update the profile in repository
       await profileRepo.updateProfile(updatedProfile);
 
       // reload the updated profile
       await fetchUserProfile(userId);
+      // emit a loaded profile state
+      // emit(ProfileLoaded(currentUser));
     } catch (e) {
       // emit a error state
       emit(ProfileError('Cannot update the profile: $e'));

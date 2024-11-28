@@ -10,6 +10,8 @@ import 'package:craft_box/pages/screen_sizes/tablet/tablet_profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../features/profile/domain/entities/profile_user.dart';
+
 class ProfilePage extends StatefulWidget {
   final String userId;
 
@@ -33,11 +35,11 @@ class _ProfilePageState extends State<ProfilePage> {
   late AppUser? currentUser = authCubit.currentUser;
 
   // on edit button pressed
-  void goToEditProfilePage() {
+  void goToEditProfilePage(ProfileUser user) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => const EditProfilePage(),
+        builder: (context) => EditProfilePage(user: user),
       ),
     );
   }
@@ -64,7 +66,7 @@ class _ProfilePageState extends State<ProfilePage> {
           return ScreenAdapt(
             mobileScaffold: MobileProfilePage(
               user: loadedUser,
-              onEditPressed: goToEditProfilePage,
+              onEditPressed: () => goToEditProfilePage(loadedUser),
             ),
             tabletScaffold: TabletProfilePage(
               user: loadedUser,

@@ -3,7 +3,14 @@ import 'package:craft_box/components/desktop/app_bar_text_field.dart';
 import 'package:flutter/material.dart';
 
 class MobileEditProfilePage extends StatefulWidget {
-  const MobileEditProfilePage({super.key});
+  final TextEditingController controller;
+  final Function()? onSaveTap;
+
+  const MobileEditProfilePage({
+    super.key,
+    required this.controller,
+    required this.onSaveTap,
+  });
 
   @override
   State<MobileEditProfilePage> createState() => _MobileEditProfilePageState();
@@ -41,12 +48,13 @@ class _MobileEditProfilePageState extends State<MobileEditProfilePage> {
                   const SizedBox(height: 30),
 
                   // edit profile bio
-                  const Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Edit bio text'),
-                      SizedBox(height: 10),
+                      const Text('Edit bio text'),
+                      const SizedBox(height: 10),
                       AppBarTextField(
+                        controller: widget.controller,
                         hintText: 'new bio . .',
                       ),
                     ],
@@ -58,7 +66,7 @@ class _MobileEditProfilePageState extends State<MobileEditProfilePage> {
               BottomButton(
                 text: 'Save changes',
                 color: Theme.of(context).colorScheme.tertiary,
-                onTap: () {},
+                onTap: widget.onSaveTap,
               ),
             ],
           ),

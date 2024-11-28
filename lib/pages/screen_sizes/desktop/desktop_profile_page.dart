@@ -20,10 +20,13 @@ class DesktopProfilePage extends StatefulWidget {
 }
 
 class _DesktopProfilePageState extends State<DesktopProfilePage> {
+  final appBarTextController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DesktopHomeAppBar(
+        controller: appBarTextController,
         actions: [
           IconButton(
             onPressed: () {},

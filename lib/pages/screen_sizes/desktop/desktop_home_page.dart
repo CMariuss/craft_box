@@ -12,10 +12,13 @@ class DesktopHomePage extends StatefulWidget {
 }
 
 class _DesktopHomePageState extends State<DesktopHomePage> {
+  final appBarTextController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DesktopHomeAppBar(
+        controller: appBarTextController,
         actions: [
           IconButton(
             onPressed: () {},

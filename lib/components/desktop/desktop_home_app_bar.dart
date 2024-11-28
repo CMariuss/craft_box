@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 class DesktopHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget> actions;
   final Function()? onBoxPressed;
+  final TextEditingController controller;
 
   const DesktopHomeAppBar({
     super.key,
     required this.actions,
     required this.onBoxPressed,
+    required this.controller,
   });
 
   @override
@@ -26,10 +28,11 @@ class DesktopHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: onBoxPressed,
         ),
       ),
-      title: const SizedBox(
+      title: SizedBox(
         width: 300,
         height: 40,
         child: AppBarTextField(
+          controller: controller,
           hintText: 'search . .',
         ),
       ),
