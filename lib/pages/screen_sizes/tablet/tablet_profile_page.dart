@@ -10,10 +10,12 @@ import '../../../features/profile/domain/entities/profile_user.dart';
 
 class TabletProfilePage extends StatefulWidget {
   final ProfileUser? user;
+  final String profilePicturePath;
 
   const TabletProfilePage({
     super.key,
     required this.user,
+    required this.profilePicturePath,
   });
 
   @override
@@ -85,7 +87,7 @@ class _TabletProfilePageState extends State<TabletProfilePage> {
                     CircleAvatar(
                       radius: 70,
                       backgroundImage:
-                          Image.asset('images/profile/profile_01.jpg').image,
+                          Image.asset(widget.profilePicturePath).image,
                     ),
 
                     const SizedBox(height: 20),

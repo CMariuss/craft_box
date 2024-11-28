@@ -15,8 +15,9 @@ The features/domain folder contains the core logic of the entire app
 
 ### Profile
 
-1. https://unsplash.com/photos/person-using-chisel-while-curving-wood-3cIvvzjE6Lk?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash
+1. https://unsplash.com/photos/a-ball-of-yarn-and-a-knitting-needle-on-a-white-surface-6DFFPF6uqeY?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash
 2. https://unsplash.com/photos/green-and-purple-yarn-ball-0TvE4CQ33_I?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash
+3. https://unsplash.com/photos/hand-tools-on-top-of-table-v8vz-Roj8zo?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash
 
 ## Icons
 

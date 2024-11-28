@@ -9,10 +9,12 @@ import '../../../features/profile/domain/entities/profile_user.dart';
 
 class DesktopProfilePage extends StatefulWidget {
   final ProfileUser? user;
+  final String profilePicturePath;
 
   const DesktopProfilePage({
     super.key,
     required this.user,
+    required this.profilePicturePath,
   });
 
   @override
@@ -85,8 +87,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
                           CircleAvatar(
                             radius: 100,
                             backgroundImage:
-                                Image.asset('images/profile/profile_01.jpg')
-                                    .image,
+                                Image.asset(widget.profilePicturePath).image,
                           ),
 
                           const SizedBox(width: 30),

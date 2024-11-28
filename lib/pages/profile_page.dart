@@ -55,6 +55,8 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    const String profilePicturePath = 'images/profile/profile_03.jpg';
+
     // get right profile screen size
     return BlocBuilder<ProfileCubit, ProfileStates>(
       builder: (context, state) {
@@ -66,13 +68,16 @@ class _ProfilePageState extends State<ProfilePage> {
           return ScreenAdapt(
             mobileScaffold: MobileProfilePage(
               user: loadedUser,
+              profilePicturePath: profilePicturePath,
               onEditPressed: () => goToEditProfilePage(loadedUser),
             ),
             tabletScaffold: TabletProfilePage(
               user: loadedUser,
+              profilePicturePath: profilePicturePath,
             ),
             desktopScaffold: DesktopProfilePage(
               user: loadedUser,
+              profilePicturePath: profilePicturePath,
             ),
           );
         }

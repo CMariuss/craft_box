@@ -7,11 +7,13 @@ import '../../../components/post_container.dart';
 
 class MobileProfilePage extends StatefulWidget {
   final ProfileUser? user;
+  final String profilePicturePath;
   final Function()? onEditPressed;
 
   const MobileProfilePage({
     super.key,
     required this.user,
+    required this.profilePicturePath,
     required this.onEditPressed,
   });
 
@@ -48,8 +50,7 @@ class _MobileProfilePageState extends State<MobileProfilePage> {
                 // profile photo
                 CircleAvatar(
                   radius: 70,
-                  backgroundImage:
-                      Image.asset('images/profile/profile_01.jpg').image,
+                  backgroundImage: Image.asset(widget.profilePicturePath).image,
                 ),
 
                 const SizedBox(height: 20),
