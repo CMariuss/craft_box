@@ -219,6 +219,8 @@ class _MobileProfilePageState extends State<MobileProfilePage> {
                   isUserPost: true,
                   hasLike: true,
                 ),
+
+                const SizedBox(height: 30),
               ],
             )
           ],

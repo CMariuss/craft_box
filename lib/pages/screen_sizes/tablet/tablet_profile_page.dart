@@ -95,11 +95,11 @@ class _TabletProfilePageState extends State<TabletProfilePage> {
 
                     // user details
                     Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // location
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             // location icon
                             Icon(
@@ -125,6 +125,7 @@ class _TabletProfilePageState extends State<TabletProfilePage> {
 
                         // spoken languages
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             // location icon
                             Icon(

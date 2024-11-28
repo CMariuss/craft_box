@@ -1,77 +1,31 @@
-import 'package:craft_box/app.dart';
 import 'package:craft_box/components/auth_text_field.dart';
 import 'package:craft_box/components/bottom_button.dart';
-import 'package:craft_box/features/presentation/cubits/auth_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MobileRegisterPage extends StatefulWidget {
-  final Function()? onTap;
+  final Function()? onRegisterTap;
+  final Function()? onLoginTap;
+  final TextEditingController nameTextController;
+  final TextEditingController emailTextController;
+  final TextEditingController passwordTextController;
+  final TextEditingController repeatPasswordTextController;
 
-  const MobileRegisterPage({super.key, required this.onTap});
+  const MobileRegisterPage({
+    super.key,
+    required this.onRegisterTap,
+    required this.onLoginTap,
+    required this.nameTextController,
+    required this.emailTextController,
+    required this.passwordTextController,
+    required this.repeatPasswordTextController,
+  });
 
   @override
   State<MobileRegisterPage> createState() => _MobileRegisterPageState();
 }
 
 class _MobileRegisterPageState extends State<MobileRegisterPage> {
-  final nameTextController = TextEditingController();
-  final emailTextController = TextEditingController();
-  final passwordTextController = TextEditingController();
-  final repeatPasswordTextController = TextEditingController();
-
-  // on register button tap
-  void register() {
-    // prepare the register information
-    final String name = nameTextController.text;
-    final String email = emailTextController.text;
-    final String password = passwordTextController.text;
-    final String repeatedPassword = repeatPasswordTextController.text;
-
-    // initialize auth cubit
-    final authCubit = context.read<AuthCubit>();
-
-    // ensure that all field aren't empty
-    if (name.isNotEmpty &&
-        email.isNotEmpty &&
-        password.isNotEmpty &&
-        repeatedPassword.isNotEmpty) {
-      // ensure that both password match
-      if (password == repeatedPassword) {
-        // register a new user
-        authCubit.register(name, email, password);
-      }
-
-      // if passwords don't match display an snack bar message
-      else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Passwords don\'t match'),
-          ),
-        );
-      }
-    }
-    // if some fields are empty then display an error
-    else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Please fill both the email and password text fields'),
-        ),
-      );
-    }
-  }
-
-  @override
-  void dispose() {
-    nameTextController.dispose();
-    emailTextController.dispose();
-    passwordTextController.dispose();
-    repeatPasswordTextController.dispose();
-
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,7 +58,7 @@ class _MobileRegisterPageState extends State<MobileRegisterPage> {
               // name text field
               AuthTextField(
                 isHidden: false,
-                controller: nameTextController,
+                controller: widget.nameTextController,
                 hintText: 'your name . .',
               ),
 
@@ -113,7 +67,7 @@ class _MobileRegisterPageState extends State<MobileRegisterPage> {
               // email text field
               AuthTextField(
                 isHidden: false,
-                controller: emailTextController,
+                controller: widget.emailTextController,
                 hintText: 'email . .',
               ),
 
@@ -122,7 +76,7 @@ class _MobileRegisterPageState extends State<MobileRegisterPage> {
               // password text field
               AuthTextField(
                 isHidden: true,
-                controller: passwordTextController,
+                controller: widget.passwordTextController,
                 hintText: 'password . .',
               ),
 
@@ -131,7 +85,7 @@ class _MobileRegisterPageState extends State<MobileRegisterPage> {
               // password text field
               AuthTextField(
                 isHidden: true,
-                controller: repeatPasswordTextController,
+                controller: widget.repeatPasswordTextController,
                 hintText: 'repeat password . .',
               ),
 
@@ -141,7 +95,7 @@ class _MobileRegisterPageState extends State<MobileRegisterPage> {
               BottomButton(
                 text: 'Register',
                 color: Colors.deepOrangeAccent,
-                onTap: register,
+                onTap: widget.onRegisterTap,
               ),
 
               const SizedBox(height: 40),
@@ -163,7 +117,7 @@ class _MobileRegisterPageState extends State<MobileRegisterPage> {
                   // button
                   GestureDetector(
                     // go to login page on user tap
-                    onTap: widget.onTap,
+                    onTap: widget.onLoginTap,
                     child: const Text(
                       'Login here',
                       style: TextStyle(

@@ -25,7 +25,7 @@ class _AuthPageState extends State<AuthPage> {
     if (showLoginPage) {
       return LoginPage(onRegisterTap: togglePages);
     } else {
-      return RegisterPage(onTap: togglePages);
+      return RegisterPage(onLoginTap: togglePages);
     }
   }
 }

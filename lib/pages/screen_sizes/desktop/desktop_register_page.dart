@@ -7,61 +7,29 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../features/presentation/cubits/auth_cubit.dart';
 
 class DesktopRegisterPage extends StatefulWidget {
-  final Function()? onTap;
+  final Function()? onRegisterTap;
+  final Function()? onLoginTap;
+  final TextEditingController nameTextController;
+  final TextEditingController emailTextController;
+  final TextEditingController passwordTextController;
+  final TextEditingController repeatPasswordTextController;
 
-  const DesktopRegisterPage({super.key, required this.onTap});
+  const DesktopRegisterPage({
+    super.key,
+    required this.onRegisterTap,
+    required this.onLoginTap,
+    required this.nameTextController,
+    required this.emailTextController,
+    required this.passwordTextController,
+    required this.repeatPasswordTextController,
+  });
 
   @override
   State<DesktopRegisterPage> createState() => _DesktopRegisterPageState();
 }
 
 class _DesktopRegisterPageState extends State<DesktopRegisterPage> {
-  final nameTextController = TextEditingController();
-  final emailTextController = TextEditingController();
-  final passwordTextController = TextEditingController();
-  final repeatPasswordTextController = TextEditingController();
   final double fieldsWidth = 350;
-
-  // on register button tap
-  void register() {
-    // prepare the register information
-    final String name = nameTextController.text;
-    final String email = emailTextController.text;
-    final String password = passwordTextController.text;
-    final String repeatedPassword = repeatPasswordTextController.text;
-
-    // initialize auth cubit
-    final authCubit = context.read<AuthCubit>();
-
-    // ensure that all field aren't empty
-    if (name.isNotEmpty &&
-        email.isNotEmpty &&
-        password.isNotEmpty &&
-        repeatedPassword.isNotEmpty) {
-      // ensure that both password match
-      if (password == repeatedPassword) {
-        // register a new user
-        authCubit.register(name, email, password);
-      }
-
-      // if passwords don't match display an snack bar message
-      else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Passwords don\'t match'),
-          ),
-        );
-      }
-    }
-    // if some fields are empty then display an error
-    else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Please fill both the email and password text fields'),
-        ),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +65,7 @@ class _DesktopRegisterPageState extends State<DesktopRegisterPage> {
                 width: fieldsWidth,
                 child: AuthTextField(
                   isHidden: false,
-                  controller: nameTextController,
+                  controller: widget.nameTextController,
                   hintText: 'your name . .',
                 ),
               ),
@@ -109,7 +77,7 @@ class _DesktopRegisterPageState extends State<DesktopRegisterPage> {
                 width: fieldsWidth,
                 child: AuthTextField(
                   isHidden: false,
-                  controller: emailTextController,
+                  controller: widget.emailTextController,
                   hintText: 'email . .',
                 ),
               ),
@@ -121,7 +89,7 @@ class _DesktopRegisterPageState extends State<DesktopRegisterPage> {
                 width: fieldsWidth,
                 child: AuthTextField(
                   isHidden: true,
-                  controller: passwordTextController,
+                  controller: widget.passwordTextController,
                   hintText: 'password . .',
                 ),
               ),
@@ -133,7 +101,7 @@ class _DesktopRegisterPageState extends State<DesktopRegisterPage> {
                 width: fieldsWidth,
                 child: AuthTextField(
                   isHidden: true,
-                  controller: repeatPasswordTextController,
+                  controller: widget.repeatPasswordTextController,
                   hintText: 'repeat password . .',
                 ),
               ),
@@ -146,7 +114,7 @@ class _DesktopRegisterPageState extends State<DesktopRegisterPage> {
                 child: BottomButton(
                   text: 'Register',
                   color: Colors.deepOrangeAccent,
-                  onTap: () {},
+                  onTap: widget.onRegisterTap,
                 ),
               ),
 
@@ -169,7 +137,7 @@ class _DesktopRegisterPageState extends State<DesktopRegisterPage> {
                   // button
                   GestureDetector(
                     // go to login page on user tap
-                    onTap: widget.onTap,
+                    onTap: widget.onLoginTap,
                     child: const Text(
                       'Login here',
                       style: TextStyle(

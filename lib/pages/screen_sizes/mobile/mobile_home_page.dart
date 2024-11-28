@@ -47,6 +47,8 @@ class _MobileHomePageState extends State<MobileHomePage> {
               isUserPost: false,
               hasLike: false,
             ),
+
+            SizedBox(height: 30),
           ],
         ),
       ),
