@@ -18,76 +18,79 @@ class _TabletHomePageState extends State<TabletHomePage> {
     return Scaffold(
       appBar: const CustomAppBar(),
       drawer: const CustomDrawer(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: Row(
-          children: [
-            // contacts list
-            Expanded(
-              flex: 1,
-              child: ListView(
-                children: [
-                  const SizedBox(height: 15),
-                  Text(
-                    'Contacts',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).colorScheme.tertiary,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            children: [
+              // contacts list
+              Expanded(
+                flex: 1,
+                child: ListView(
+                  children: [
+                    const SizedBox(height: 15),
+                    Text(
+                      'Contacts',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).colorScheme.tertiary,
+                      ),
                     ),
-                  ),
-                  const ContactTile(
-                    contactName: 'Anna Glow',
-                    profilePicturePath: '',
-                  ),
-                  const ContactTile(
-                    contactName: 'Mary Jones',
-                    profilePicturePath: 'images/profile/profile_01.jpg',
-                  ),
-                  const ContactTile(
-                    contactName: 'Josephine Elliot',
-                    profilePicturePath: '',
-                  ),
-                  const ContactTile(
-                    contactName: 'Timothy White',
-                    profilePicturePath: '',
-                  ),
-                  const ContactTile(
-                    contactName: 'Clara Peterson',
-                    profilePicturePath: '',
-                  ),
-                  const ContactTile(
-                    contactName: 'John Britton',
-                    profilePicturePath: 'images/profile/profile_02.jpg',
-                  ),
-                ],
+                    const SizedBox(height: 20),
+                    const ContactTile(
+                      contactName: 'Anna Glow',
+                      profilePicturePath: '',
+                    ),
+                    const ContactTile(
+                      contactName: 'Mary Jones',
+                      profilePicturePath: 'images/profile/profile_01.jpg',
+                    ),
+                    const ContactTile(
+                      contactName: 'Josephine Elliot',
+                      profilePicturePath: '',
+                    ),
+                    const ContactTile(
+                      contactName: 'Timothy White',
+                      profilePicturePath: '',
+                    ),
+                    const ContactTile(
+                      contactName: 'Clara Peterson',
+                      profilePicturePath: '',
+                    ),
+                    const ContactTile(
+                      contactName: 'John Britton',
+                      profilePicturePath: 'images/profile/profile_02.jpg',
+                    ),
+                  ],
+                ),
               ),
-            ),
 
-            // post list on right side
-            Expanded(
-              flex: 3,
-              child: ListView.builder(
-                itemCount: PostProvider.postList.length,
-                itemBuilder: (context, index) {
-                  final post = PostProvider.postList[index];
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    child: DesktopPostContainer(
-                      userName: post.userName,
-                      imagePath: post.postMediaPath,
-                      profilePhoto: post.profilePicturePath,
-                      postTitle: post.postTitle,
-                      postDescription: post.postDescription,
-                      postDateTime: post.postDateTime,
-                      isUserPost: post.isUserPost,
-                      hasLike: post.hasLike,
-                      postWidth: 600,
-                    ),
-                  );
-                },
+              // post list on right side
+              Expanded(
+                flex: 2,
+                child: ListView.builder(
+                  itemCount: PostProvider.postList.length,
+                  itemBuilder: (context, index) {
+                    final post = PostProvider.postList[index];
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      child: DesktopPostContainer(
+                        userName: post.userName,
+                        imagePath: post.postMediaPath,
+                        profilePhoto: post.profilePicturePath,
+                        postTitle: post.postTitle,
+                        postDescription: post.postDescription,
+                        postDateTime: post.postDateTime,
+                        isUserPost: post.isUserPost,
+                        hasLike: post.hasLike,
+                        postWidth: 500,
+                      ),
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

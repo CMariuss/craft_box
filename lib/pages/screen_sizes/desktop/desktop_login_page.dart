@@ -27,101 +27,98 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+      body: ListView(
+        shrinkWrap: true,
         children: [
-          Expanded(
-            flex: 2,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // app logo
-                Icon(
-                  CupertinoIcons.cube,
-                  size: 150,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // app logo
+              Icon(
+                CupertinoIcons.cube,
+                size: 150,
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+
+              const SizedBox(height: 30),
+
+              // welcome text
+              Text(
+                'Welcome back, let\'s login!',
+                style: TextStyle(
+                  fontSize: 18,
                   color: Theme.of(context).colorScheme.secondary,
                 ),
+              ),
 
-                const SizedBox(height: 30),
+              const SizedBox(height: 50),
 
-                // welcome text
-                Text(
-                  'Welcome back, let\'s login!',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Theme.of(context).colorScheme.secondary,
-                  ),
+              // email text field
+              SizedBox(
+                width: fieldsWidth,
+                child: AuthTextField(
+                  isHidden: false,
+                  controller: widget.emailTextController,
+                  hintText: 'email . .',
                 ),
+              ),
 
-                const SizedBox(height: 50),
+              const SizedBox(height: 20),
 
-                // email text field
-                SizedBox(
-                  width: fieldsWidth,
-                  child: AuthTextField(
-                    isHidden: false,
-                    controller: widget.emailTextController,
-                    hintText: 'email . .',
-                  ),
+              // password text field
+              SizedBox(
+                width: fieldsWidth,
+                child: AuthTextField(
+                  isHidden: true,
+                  controller: widget.passwordTextController,
+                  hintText: 'password . .',
                 ),
+              ),
 
-                const SizedBox(height: 20),
+              const SizedBox(height: 20),
 
-                // password text field
-                SizedBox(
-                  width: fieldsWidth,
-                  child: AuthTextField(
-                    isHidden: true,
-                    controller: widget.passwordTextController,
-                    hintText: 'password . .',
-                  ),
+              // login button
+              SizedBox(
+                width: fieldsWidth,
+                child: BottomButton(
+                  text: 'Login',
+                  color: Colors.deepOrangeAccent,
+                  onTap: widget.onLoginTap,
                 ),
+              ),
 
-                const SizedBox(height: 20),
+              const SizedBox(height: 50),
 
-                // login button
-                SizedBox(
-                  width: fieldsWidth,
-                  child: BottomButton(
-                    text: 'Login',
-                    color: Colors.deepOrangeAccent,
-                    onTap: widget.onLoginTap,
+              // not a member text + register button (go to register page)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // text
+                  Text(
+                    'Not a member?',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
                   ),
-                ),
 
-                const SizedBox(height: 50),
+                  const SizedBox(width: 5),
 
-                // not a member text + register button (go to register page)
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // text
-                    Text(
-                      'Not a member?',
+                  // button
+                  GestureDetector(
+                    // go to register page on user tap
+                    onTap: widget.onRegisterTap,
+                    child: const Text(
+                      'Create an account',
                       style: TextStyle(
-                        color: Theme.of(context).colorScheme.secondary,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.deepOrangeAccent,
                       ),
                     ),
-
-                    const SizedBox(width: 5),
-
-                    // button
-                    GestureDetector(
-                      // go to register page on user tap
-                      onTap: widget.onRegisterTap,
-                      child: const Text(
-                        'Create an account',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.deepOrangeAccent,
-                        ),
-                      ),
-                    )
-                  ],
-                )
-              ],
-            ),
-          ),
+                  )
+                ],
+              )
+            ],
+          )
         ],
       ),
     );
