@@ -34,69 +34,73 @@ class CustomDrawer extends StatelessWidget {
               ),
               const SizedBox(height: 50),
 
-              Padding(
-                padding: const EdgeInsets.only(left: 30),
-                child: Column(
-                  children: [
-                    // profile
-                    DrawerTile(
-                      icon: CupertinoIcons.person,
-                      title: 'Profile',
-                      iconSize: 20,
-                      onTap: () {
-                        // close drawer
-                        Navigator.pop(context);
+              Column(
+                children: [
+                  // profile
+                  DrawerTile(
+                    icon: CupertinoIcons.person,
+                    title: 'Profile',
+                    iconSize: 20,
+                    onTap: () {
+                      // close drawer
+                      Navigator.pop(context);
 
-                        // get current user id
-                        final currentUser =
-                            context.read<AuthCubit>().currentUser;
-                        String? userId = currentUser!.userId;
+                      // get current user id
+                      final currentUser = context.read<AuthCubit>().currentUser;
+                      String? userId = currentUser!.userId;
 
-                        // go to profile page
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ProfilePage(
-                              userId: userId,
-                            ),
+                      // go to profile page
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProfilePage(
+                            userId: userId,
                           ),
-                        );
-                      },
-                    ),
+                        ),
+                      );
+                    },
+                  ),
 
-                    // explore
-                    DrawerTile(
-                      icon: CupertinoIcons.search,
-                      title: 'Explore',
-                      iconSize: 20,
-                      onTap: () {},
-                    ),
+                  // contacts
+                  DrawerTile(
+                    icon: CupertinoIcons.person_2,
+                    title: 'Contacts',
+                    iconSize: 20,
+                    onTap: () {},
+                  ),
 
-                    // saved items
-                    DrawerTile(
-                      icon: CupertinoIcons.bookmark,
-                      title: 'Saved items',
-                      iconSize: 18,
-                      onTap: () {},
-                    ),
+                  // explore
+                  DrawerTile(
+                    icon: CupertinoIcons.search,
+                    title: 'Explore',
+                    iconSize: 20,
+                    onTap: () {},
+                  ),
 
-                    // notifications
-                    DrawerTile(
-                      icon: CupertinoIcons.bell,
-                      title: 'Notifications',
-                      iconSize: 18,
-                      onTap: () {},
-                    ),
+                  // saved items
+                  DrawerTile(
+                    icon: CupertinoIcons.bookmark,
+                    title: 'Saved items',
+                    iconSize: 18,
+                    onTap: () {},
+                  ),
 
-                    // settings
-                    DrawerTile(
-                      icon: Icons.settings,
-                      title: 'Settings',
-                      iconSize: 22,
-                      onTap: () {},
-                    ),
-                  ],
-                ),
+                  // notifications
+                  DrawerTile(
+                    icon: CupertinoIcons.bell,
+                    title: 'Notifications',
+                    iconSize: 20,
+                    onTap: () {},
+                  ),
+
+                  // settings
+                  DrawerTile(
+                    icon: Icons.settings,
+                    title: 'Settings',
+                    iconSize: 20,
+                    onTap: () {},
+                  ),
+                ],
               ),
             ],
           ),
