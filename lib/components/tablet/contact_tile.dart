@@ -11,16 +11,16 @@ class ContactTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: const EdgeInsets.symmetric(vertical: 0),
+      contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
       minTileHeight: 10,
       leading: Icon(
         Icons.account_circle,
-        color: Theme.of(context).colorScheme.secondary,
+        color: Theme.of(context).colorScheme.tertiary,
       ),
       title: Text(
         contactName,
         style: TextStyle(
-          fontSize: 15,
+          fontSize: 14,
           color: Theme.of(context).colorScheme.secondary,
         ),
       ),

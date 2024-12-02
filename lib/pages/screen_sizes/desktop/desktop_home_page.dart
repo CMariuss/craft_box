@@ -4,6 +4,8 @@ import 'package:craft_box/components/desktop/desktop_post_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../components/tablet/contact_tile.dart';
+
 class DesktopHomePage extends StatefulWidget {
   const DesktopHomePage({super.key});
 
@@ -13,6 +15,7 @@ class DesktopHomePage extends StatefulWidget {
 
 class _DesktopHomePageState extends State<DesktopHomePage> {
   final appBarTextController = TextEditingController();
+  final double postWidth = 650;
 
   @override
   Widget build(BuildContext context) {
@@ -23,16 +26,17 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
           IconButton(
             onPressed: () {},
             icon: Icon(
-              CupertinoIcons.add,
-              color: Theme.of(context).colorScheme.tertiary,
+              Icons.chat_outlined,
+              size: 22,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
           const SizedBox(width: 20),
           IconButton(
             onPressed: () {},
             icon: Icon(
-              Icons.chat_outlined,
-              size: 22,
+              CupertinoIcons.add,
+              size: 24,
               color: Theme.of(context).colorScheme.tertiary,
             ),
           ),
@@ -48,15 +52,15 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
             child: DesktopDrawer(),
           ),
 
-          // the content in the right side
+          // the content in the middle
           Expanded(
             flex: 4,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: ListView(
                 shrinkWrap: true,
-                children: const [
-                  SizedBox(height: 30),
+                children: [
+                  const SizedBox(height: 30),
 
                   // first post
                   DesktopPostContainer(
@@ -68,10 +72,10 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                     postDateTime: 'Today, 10:46',
                     isUserPost: true,
                     hasLike: true,
-                    postWidth: 600,
+                    postWidth: postWidth,
                   ),
 
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
 
                   // second post
                   DesktopPostContainer(
@@ -83,12 +87,41 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                     postDateTime: 'Today, 10:30',
                     isUserPost: false,
                     hasLike: false,
-                    postWidth: 600,
+                    postWidth: postWidth,
                   ),
 
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                 ],
               ),
+            ),
+          ),
+
+          // the contacts in the right side
+          Expanded(
+            flex: 1,
+            child: ListView(
+              children: [
+                const SizedBox(height: 15),
+                ListTile(
+                  leading: Icon(
+                    CupertinoIcons.person_2,
+                    color: Theme.of(context).colorScheme.tertiary,
+                  ),
+                  title: Text(
+                    'Contacts',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).colorScheme.tertiary,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                const ContactTile(contactName: 'Anna Glow'),
+                const ContactTile(contactName: 'Jim Smith'),
+                const ContactTile(contactName: 'Josephine Elliot'),
+                const ContactTile(contactName: 'Timothy White'),
+                const ContactTile(contactName: 'Clara Peterson'),
+              ],
             ),
           ),
         ],

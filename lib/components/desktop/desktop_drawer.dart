@@ -46,14 +46,6 @@ class DesktopDrawer extends StatelessWidget {
 
             // saved items
             DrawerTile(
-              icon: CupertinoIcons.person_2,
-              title: 'Contacts',
-              iconSize: 20,
-              onTap: () {},
-            ),
-
-            // saved items
-            DrawerTile(
               icon: CupertinoIcons.bookmark,
               title: 'Saved items',
               iconSize: 18,
