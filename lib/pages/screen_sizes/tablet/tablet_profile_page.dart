@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../features/profile/domain/entities/profile_user.dart';
+import '../../../providers/post_provider.dart';
 
 class TabletProfilePage extends StatefulWidget {
   final ProfileUser? user;
@@ -283,29 +284,27 @@ class _TabletProfilePageState extends State<TabletProfilePage> {
               ),
             ),
 
-            // post list on right side
+            // user post list on right side
             Expanded(
               flex: 2,
-              child: ListView(
-                shrinkWrap: true,
-                children: const [
-                  // posts
-                  DesktopPostContainer(
-                    userName: 'Mary Johns',
-                    imagePath: 'images/crocheted_pillow.jpg',
-                    profilePhoto: 'images/profile/profile_01.jpg',
-                    postTitle: 'Crocheted pillow',
-                    postDescription: 'Handmade crocheted pillow',
-                    postDateTime: 'Today, 10:46',
-                    isUserPost: true,
-                    hasLike: true,
+              child: ListView.builder(
+                itemCount: PostProvider.userPostList.length,
+                itemBuilder: (context, index) {
+                  final post = PostProvider.userPostList[index];
+                  return DesktopPostContainer(
+                    userName: widget.user!.name,
+                    imagePath: post.postMediaPath,
+                    profilePhoto: post.profilePicturePath,
+                    postTitle: post.postTitle,
+                    postDescription: post.postDescription,
+                    postDateTime: post.postDateTime,
+                    isUserPost: post.isUserPost,
+                    hasLike: post.hasLike,
                     postWidth: 600,
-                  ),
-
-                  SizedBox(height: 30),
-                ],
+                  );
+                },
               ),
-            )
+            ),
           ],
         ),
       ),

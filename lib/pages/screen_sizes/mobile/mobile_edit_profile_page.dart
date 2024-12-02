@@ -25,7 +25,7 @@ class _MobileEditProfilePageState extends State<MobileEditProfilePage> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -40,7 +40,7 @@ class _MobileEditProfilePageState extends State<MobileEditProfilePage> {
                       CircleAvatar(
                         radius: 70,
                         backgroundImage:
-                            Image.asset('images/profile/profile_01.jpg').image,
+                            Image.asset('images/profile/profile_03.jpg').image,
                       ),
                     ],
                   ),
@@ -51,7 +51,7 @@ class _MobileEditProfilePageState extends State<MobileEditProfilePage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Edit bio text'),
+                      const Text('Edit bio'),
                       const SizedBox(height: 10),
                       AppBarTextField(
                         controller: widget.controller,

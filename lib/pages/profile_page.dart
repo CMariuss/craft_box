@@ -2,11 +2,13 @@ import 'package:craft_box/features/domain/entities/app_user.dart';
 import 'package:craft_box/features/presentation/cubits/auth_cubit.dart';
 import 'package:craft_box/features/profile/presentation/cubits/profile_cubit.dart';
 import 'package:craft_box/features/profile/presentation/cubits/profile_states.dart';
+import 'package:craft_box/models/post.dart';
 import 'package:craft_box/pages/edit_profile_page.dart';
 import 'package:craft_box/pages/screen_adapt.dart';
 import 'package:craft_box/pages/screen_sizes/desktop/desktop_profile_page.dart';
 import 'package:craft_box/pages/screen_sizes/mobile/mobile_profile_page.dart';
 import 'package:craft_box/pages/screen_sizes/tablet/tablet_profile_page.dart';
+import 'package:craft_box/providers/post_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

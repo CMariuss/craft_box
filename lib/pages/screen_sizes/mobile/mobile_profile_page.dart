@@ -4,6 +4,7 @@ import 'package:craft_box/features/profile/domain/entities/profile_user.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/post_container.dart';
+import '../../../providers/post_provider.dart';
 
 class MobileProfilePage extends StatefulWidget {
   final ProfileUser? user;
@@ -102,7 +103,7 @@ class _MobileProfilePageState extends State<MobileProfilePage> {
 
                         // location name
                         Text(
-                          'France',
+                          'England',
                           style: TextStyle(
                             fontSize: 14,
                             color: Theme.of(context).colorScheme.secondary,
@@ -127,7 +128,7 @@ class _MobileProfilePageState extends State<MobileProfilePage> {
 
                         // location name
                         Text(
-                          'French, English',
+                          'English',
                           style: TextStyle(
                             fontSize: 14,
                             color: Theme.of(context).colorScheme.secondary,
@@ -209,19 +210,28 @@ class _MobileProfilePageState extends State<MobileProfilePage> {
 
                 const SizedBox(height: 30),
 
-                // posts
-                const PostContainer(
-                  userName: 'Mary Johns',
-                  imagePath: 'images/crocheted_pillow.jpg',
-                  profilePhoto: 'images/profile/profile_01.jpg',
-                  postTitle: 'Crocheted pillow',
-                  postDescription: 'Handmade crocheted pillow',
-                  postDateTime: 'Today, 10:46',
-                  isUserPost: true,
-                  hasLike: true,
+                // user post list
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: PostProvider.userPostList.length,
+                  itemBuilder: (context, index) {
+                    final post = PostProvider.userPostList[index];
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      child: PostContainer(
+                        userName: widget.user!.name,
+                        imagePath: post.postMediaPath,
+                        profilePhoto: post.profilePicturePath,
+                        postTitle: post.postTitle,
+                        postDescription: post.postDescription,
+                        postDateTime: post.postDateTime,
+                        isUserPost: post.isUserPost,
+                        hasLike: post.hasLike,
+                      ),
+                    );
+                  },
                 ),
-
-                const SizedBox(height: 30),
               ],
             )
           ],

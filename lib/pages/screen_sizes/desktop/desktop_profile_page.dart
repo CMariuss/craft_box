@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../features/profile/domain/entities/profile_user.dart';
+import '../../../providers/post_provider.dart';
 
 class DesktopProfilePage extends StatefulWidget {
   final ProfileUser? user;
@@ -297,17 +298,25 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
 
                 const SizedBox(height: 80),
 
-                // posts
-                const DesktopPostContainer(
-                  userName: 'Mary Johns',
-                  imagePath: 'images/crocheted_pillow.jpg',
-                  profilePhoto: 'images/profile/profile_01.jpg',
-                  postTitle: 'Crocheted pillow',
-                  postDescription: 'Handmade crocheted pillow',
-                  postDateTime: 'Today, 10:46',
-                  isUserPost: true,
-                  hasLike: true,
-                  postWidth: 800,
+                // user post list
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: PostProvider.userPostList.length,
+                  itemBuilder: (context, index) {
+                    final post = PostProvider.userPostList[index];
+                    return DesktopPostContainer(
+                      userName: widget.user!.name,
+                      imagePath: post.postMediaPath,
+                      profilePhoto: post.profilePicturePath,
+                      postTitle: post.postTitle,
+                      postDescription: post.postDescription,
+                      postDateTime: post.postDateTime,
+                      isUserPost: post.isUserPost,
+                      hasLike: post.hasLike,
+                      postWidth: 800,
+                    );
+                  },
                 ),
 
                 const SizedBox(height: 30),

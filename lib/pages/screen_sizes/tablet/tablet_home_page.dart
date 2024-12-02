@@ -1,7 +1,8 @@
 import 'package:craft_box/components/custom_app_bar.dart';
 import 'package:craft_box/components/custom_drawer.dart';
-import 'package:craft_box/components/post_container.dart';
+import 'package:craft_box/components/desktop/desktop_post_container.dart';
 import 'package:craft_box/components/tablet/contact_tile.dart';
+import 'package:craft_box/providers/post_provider.dart';
 import 'package:flutter/material.dart';
 
 class TabletHomePage extends StatefulWidget {
@@ -34,11 +35,30 @@ class _TabletHomePageState extends State<TabletHomePage> {
                       color: Theme.of(context).colorScheme.tertiary,
                     ),
                   ),
-                  const ContactTile(contactName: 'Anna Glow'),
-                  const ContactTile(contactName: 'Jim Smith'),
-                  const ContactTile(contactName: 'Josephine Elliot'),
-                  const ContactTile(contactName: 'Timothy White'),
-                  const ContactTile(contactName: 'Clara Peterson'),
+                  const ContactTile(
+                    contactName: 'Anna Glow',
+                    profilePicturePath: '',
+                  ),
+                  const ContactTile(
+                    contactName: 'Mary Jones',
+                    profilePicturePath: 'images/profile/profile_01.jpg',
+                  ),
+                  const ContactTile(
+                    contactName: 'Josephine Elliot',
+                    profilePicturePath: '',
+                  ),
+                  const ContactTile(
+                    contactName: 'Timothy White',
+                    profilePicturePath: '',
+                  ),
+                  const ContactTile(
+                    contactName: 'Clara Peterson',
+                    profilePicturePath: '',
+                  ),
+                  const ContactTile(
+                    contactName: 'John Britton',
+                    profilePicturePath: 'images/profile/profile_02.jpg',
+                  ),
                 ],
               ),
             ),
@@ -46,39 +66,25 @@ class _TabletHomePageState extends State<TabletHomePage> {
             // post list on right side
             Expanded(
               flex: 3,
-              child: ListView(
-                shrinkWrap: true,
-                children: const [
-                  SizedBox(height: 15),
-
-                  // first post
-                  PostContainer(
-                    userName: 'Mary Johns',
-                    imagePath: 'images/crocheted_pillow.jpg',
-                    profilePhoto: 'images/profile/profile_01.jpg',
-                    postTitle: 'Crocheted pillow',
-                    postDescription: 'Handmade crocheted pillow',
-                    postDateTime: 'Today, 10:46',
-                    isUserPost: true,
-                    hasLike: true,
-                  ),
-
-                  SizedBox(height: 30),
-
-                  // second post
-                  PostContainer(
-                    userName: 'John Britton',
-                    imagePath: 'images/first_post_wood.jpg',
-                    profilePhoto: 'images/profile/profile_02.jpg',
-                    postTitle: 'Wooden kitchen',
-                    postDescription: 'Handmade wooden kitchen tools',
-                    postDateTime: 'Today, 10:30',
-                    isUserPost: false,
-                    hasLike: false,
-                  ),
-
-                  SizedBox(height: 30),
-                ],
+              child: ListView.builder(
+                itemCount: PostProvider.postList.length,
+                itemBuilder: (context, index) {
+                  final post = PostProvider.postList[index];
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: DesktopPostContainer(
+                      userName: post.userName,
+                      imagePath: post.postMediaPath,
+                      profilePhoto: post.profilePicturePath,
+                      postTitle: post.postTitle,
+                      postDescription: post.postDescription,
+                      postDateTime: post.postDateTime,
+                      isUserPost: post.isUserPost,
+                      hasLike: post.hasLike,
+                      postWidth: 600,
+                    ),
+                  );
+                },
               ),
             ),
           ],

@@ -23,7 +23,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
           onPressed: () {},
-          icon: const Icon(CupertinoIcons.search),
+          icon: const Icon(
+            CupertinoIcons.search,
+            size: 20,
+          ),
         ),
         const SizedBox(width: 10),
         IconButton(

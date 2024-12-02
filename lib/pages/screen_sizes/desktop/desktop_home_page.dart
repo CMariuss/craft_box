@@ -1,6 +1,7 @@
 import 'package:craft_box/components/desktop/desktop_drawer.dart';
 import 'package:craft_box/components/desktop/desktop_home_app_bar.dart';
 import 'package:craft_box/components/desktop/desktop_post_container.dart';
+import 'package:craft_box/providers/post_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -57,41 +58,26 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
             flex: 4,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: ListView(
+              child: ListView.builder(
                 shrinkWrap: true,
-                children: [
-                  const SizedBox(height: 30),
-
-                  // first post
-                  DesktopPostContainer(
-                    userName: 'Mary Johns',
-                    imagePath: 'images/crocheted_pillow.jpg',
-                    profilePhoto: 'images/profile/profile_01.jpg',
-                    postTitle: 'Crocheted pillow',
-                    postDescription: 'Handmade crocheted pillow',
-                    postDateTime: 'Today, 10:46',
-                    isUserPost: true,
-                    hasLike: true,
-                    postWidth: postWidth,
-                  ),
-
-                  const SizedBox(height: 30),
-
-                  // second post
-                  DesktopPostContainer(
-                    userName: 'John Britton',
-                    imagePath: 'images/first_post_wood.jpg',
-                    profilePhoto: 'images/profile/profile_02.jpg',
-                    postTitle: 'Wooden kitchen',
-                    postDescription: 'Handmade wooden kitchen tools',
-                    postDateTime: 'Today, 10:30',
-                    isUserPost: false,
-                    hasLike: false,
-                    postWidth: postWidth,
-                  ),
-
-                  const SizedBox(height: 40),
-                ],
+                itemCount: PostProvider.postList.length,
+                itemBuilder: (context, index) {
+                  final post = PostProvider.postList[index];
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: DesktopPostContainer(
+                      userName: post.userName,
+                      imagePath: post.postMediaPath,
+                      profilePhoto: post.profilePicturePath,
+                      postTitle: post.postTitle,
+                      postDescription: post.postDescription,
+                      postDateTime: post.postDateTime,
+                      isUserPost: post.isUserPost,
+                      hasLike: post.hasLike,
+                      postWidth: postWidth,
+                    ),
+                  );
+                },
               ),
             ),
           ),
@@ -116,11 +102,30 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                const ContactTile(contactName: 'Anna Glow'),
-                const ContactTile(contactName: 'Jim Smith'),
-                const ContactTile(contactName: 'Josephine Elliot'),
-                const ContactTile(contactName: 'Timothy White'),
-                const ContactTile(contactName: 'Clara Peterson'),
+                const ContactTile(
+                  contactName: 'Anna Glow',
+                  profilePicturePath: '',
+                ),
+                const ContactTile(
+                  contactName: 'Mary Jones',
+                  profilePicturePath: 'images/profile/profile_01.jpg',
+                ),
+                const ContactTile(
+                  contactName: 'Josephine Elliot',
+                  profilePicturePath: '',
+                ),
+                const ContactTile(
+                  contactName: 'Timothy White',
+                  profilePicturePath: '',
+                ),
+                const ContactTile(
+                  contactName: 'Clara Peterson',
+                  profilePicturePath: '',
+                ),
+                const ContactTile(
+                  contactName: 'John Britton',
+                  profilePicturePath: 'images/profile/profile_02.jpg',
+                ),
               ],
             ),
           ),

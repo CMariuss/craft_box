@@ -1,6 +1,7 @@
 import 'package:craft_box/components/custom_app_bar.dart';
 import 'package:craft_box/components/custom_drawer.dart';
 import 'package:craft_box/components/post_container.dart';
+import 'package:craft_box/providers/post_provider.dart';
 import 'package:flutter/material.dart';
 
 class MobileHomePage extends StatefulWidget {
@@ -11,6 +12,8 @@ class MobileHomePage extends StatefulWidget {
 }
 
 class _MobileHomePageState extends State<MobileHomePage> {
+  final postList = PostProvider.postList;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,38 +21,24 @@ class _MobileHomePageState extends State<MobileHomePage> {
       drawer: const CustomDrawer(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: ListView(
-          children: const [
-            SizedBox(height: 15),
-
-            // first post
-            PostContainer(
-              userName: 'Mary Johns',
-              imagePath: 'images/crocheted_pillow.jpg',
-              profilePhoto: 'images/profile/profile_01.jpg',
-              postTitle: 'Crocheted pillow',
-              postDescription: 'Handmade crocheted pillow',
-              postDateTime: 'Today, 10:46',
-              isUserPost: true,
-              hasLike: true,
-            ),
-
-            SizedBox(height: 30),
-
-            // second post
-            PostContainer(
-              userName: 'John Britton',
-              imagePath: 'images/first_post_wood.jpg',
-              profilePhoto: 'images/profile/profile_02.jpg',
-              postTitle: 'Wooden kitchen',
-              postDescription: 'Handmade wooden kitchen tools',
-              postDateTime: 'Today, 10:30',
-              isUserPost: false,
-              hasLike: false,
-            ),
-
-            SizedBox(height: 30),
-          ],
+        child: ListView.builder(
+          itemCount: postList.length,
+          itemBuilder: (context, index) {
+            final post = postList[index];
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: PostContainer(
+                userName: post.userName,
+                imagePath: post.postMediaPath,
+                profilePhoto: post.profilePicturePath,
+                postTitle: post.postTitle,
+                postDescription: post.postDescription,
+                postDateTime: post.postDateTime,
+                isUserPost: post.isUserPost,
+                hasLike: post.hasLike,
+              ),
+            );
+          },
         ),
       ),
     );
