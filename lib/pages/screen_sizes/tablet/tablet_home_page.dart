@@ -43,7 +43,8 @@ class _TabletHomePageState extends State<TabletHomePage> {
                     ),
                     const ContactTile(
                       contactName: 'Mary Jones',
-                      profilePicturePath: 'images/profile/profile_01.jpg',
+                      profilePicturePath:
+                          'assets/images/profile/profile_01.jpg',
                     ),
                     const ContactTile(
                       contactName: 'Josephine Elliot',
@@ -59,7 +60,8 @@ class _TabletHomePageState extends State<TabletHomePage> {
                     ),
                     const ContactTile(
                       contactName: 'John Britton',
-                      profilePicturePath: 'images/profile/profile_02.jpg',
+                      profilePicturePath:
+                          'assets/images/profile/profile_02.jpg',
                     ),
                   ],
                 ),

@@ -40,7 +40,8 @@ class _MobileEditProfilePageState extends State<MobileEditProfilePage> {
                       CircleAvatar(
                         radius: 70,
                         backgroundImage:
-                            Image.asset('images/profile/profile_03.jpg').image,
+                            Image.asset('assets/images/profile/profile_03.jpg')
+                                .image,
                       ),
                     ],
                   ),
