@@ -41,14 +41,23 @@ It comes with a simple and elegant design.
 
 # App screen shots
 
-<p align="center">
-  <img src="images/app_ui/mobile/home_page.png" alt="Light theme" width="200"/>
-  <img src="images/app_ui/mobile/profile_page.png" alt="Night theme" width="200"/>
-  <img src="images/app_ui/mobile/login_page.png" alt="Sunrise theme" width="200"/>
-  <img src="images/app_ui/mobile/register_page.png" alt="Florence theme" width="200"/>
-  <img src="images/app_ui/mobile/edit_profile.png" alt="Silver theme" width="200"/>
-  <img src="images/app_ui/mobile/landscape.png" alt="Silver theme" width="200"/>
-</p>
+## Mobile version
+
+<img src="images/app_ui/mobile/home_page.png" alt="Light theme" width="200"/>
+<img src="images/app_ui/mobile/profile_page.png" alt="Night theme" width="200"/>
+<img src="images/app_ui/mobile/login_page.png" alt="Sunrise theme" width="200"/>
+<img src="images/app_ui/mobile/register_page.png" alt="Florence theme" width="200"/>
+<img src="images/app_ui/mobile/edit_profile.png" alt="Silver theme" width="200"/>
+<img src="images/app_ui/mobile/drawer.png" alt="Silver theme" width="200"/>
+<img src="images/app_ui/mobile/landscape_mobile_mode.png" alt="Silver theme" width="200"/>
+
+## Web version
+
+<img src="images/app_ui/web/desktop_home_page.png" alt="Light theme" width="200"/>
+<img src="images/app_ui/web/tablet_home_page.png" alt="Light theme" width="200"/>
+<img src="images/app_ui/web/mobile_home_page.png" alt="Light theme" width="200"/>
+<img src="images/app_ui/web/desktop_profile_page.png" alt="Light theme" width="200"/>
+<img src="images/app_ui/web/desktop_login_page.png" alt="Light theme" width="200"/>
 
 # References
 
