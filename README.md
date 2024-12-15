@@ -45,7 +45,7 @@ It comes with a simple and elegant design.
 - flutter_bloc
 - cloud_firestore
 
-# App screen shots
+# App screenshots
 
 ## Mobile version
 
