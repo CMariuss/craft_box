@@ -60,17 +60,19 @@ It comes with a simple and elegant design.
 
 ### Landscape mobile = tablet mode
 
-<img src="images/app_ui/mobile/landscape_mobile_mode.png" alt="Silver theme" width="600"/>
+<p align="center">
+  <img src="images/app_ui/mobile/landscape_mobile_mode.png" alt="Silver theme" width="600"/>
+</p>
 
 ## Web version
 
 <p align="center">
-  <img src="images/app_ui/web/desktop_home_page.png" alt="Light theme" width="200"/>
-  <img src="images/app_ui/web/tablet_home_page.png" alt="Light theme" width="200"/>
-  <img src="images/app_ui/web/mobile_home_page.png" alt="Light theme" width="200"/>
-  <img src="images/app_ui/web/desktop_profile_page.png" alt="Light theme" width="200"/>
-  <img src="images/app_ui/web/desktop_login_page.png" alt="Light theme" width="200"/>
-  <img src="images/app_ui/web/desktop_register_page.png" alt="Light theme" width="200"/>
+  <img src="images/app_ui/web/desktop_home_page.png" alt="Light theme" width="400"/>
+  <img src="images/app_ui/web/tablet_home_page.png" alt="Light theme" width="400"/>
+  <img src="images/app_ui/web/mobile_home_page.png" alt="Light theme" width="400"/>
+  <img src="images/app_ui/web/desktop_profile_page.png" alt="Light theme" width="400"/>
+  <img src="images/app_ui/web/desktop_login_page.png" alt="Light theme" width="400"/>
+  <img src="images/app_ui/web/desktop_register_page.png" alt="Light theme" width="400"/>
 </p>
 
 # References
