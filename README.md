@@ -58,7 +58,9 @@ It comes with a simple and elegant design.
   <img src="images/app_ui/mobile/drawer.png" alt="Silver theme" width="200"/>
 </p>
 
-<img src="images/app_ui/mobile/landscape_mobile_mode.png" alt="Silver theme" width="400"/>
+### Landscape mobile = tablet mode
+
+<img src="images/app_ui/mobile/landscape_mobile_mode.png" alt="Silver theme" width="600"/>
 
 ## Web version
 
