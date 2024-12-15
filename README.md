@@ -1,8 +1,54 @@
-# C R A F T BOX - Social media app
+# C R A F T BOX - Social media app concept
 
-A social media for sharing hand made thinks
+This is a social media application concept developed using the Flutter framework for Android, iOS
+and Web platforms.
+The idea of this application is to bring together all people passionate about handmade things in one
+place.
+The ability to log in and register users using the Firebase platform has been integrated.
+It has the feature of adapting to any screen size: mobile, tablet, desktop.
+The application contains the following pages: home page, profile page, edit profile page, login and
+register page.
+It comes with a simple and elegant design.
 
-The features/domain folder contains the core logic of the entire app
+## Main components and features
+
+- User authentication
+    - Login user
+    - Register user
+    - User logout
+
+- Cross platform app
+    - Android
+    - iOS
+    - Web
+
+- Screen size adaptation
+    - Mobile size screen
+    - Tablet size screen
+    - Desktop size screen
+
+- Pages
+    - Home page
+    - Profile page
+    - Edit profile page
+
+## Libraries
+
+- firebase_core
+- firebase_auth
+- flutter_bloc
+- cloud_firestore
+
+# App screen shots
+
+<p align="center">
+  <img src="images/app_ui/mobile/home_page.png" alt="Light theme" width="200"/>
+  <img src="images/app_ui/mobile/profile_page.png" alt="Night theme" width="200"/>
+  <img src="images/app_ui/mobile/login_page.png" alt="Sunrise theme" width="200"/>
+  <img src="images/app_ui/mobile/register_page.png" alt="Florence theme" width="200"/>
+  <img src="images/app_ui/mobile/edit_profile.png" alt="Silver theme" width="200"/>
+  <img src="images/app_ui/mobile/landscape.png" alt="Silver theme" width="200"/>
+</p>
 
 # References
 

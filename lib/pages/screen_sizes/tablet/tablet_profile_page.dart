@@ -139,7 +139,7 @@ class _TabletProfilePageState extends State<TabletProfilePage> {
 
                                   // location name
                                   Text(
-                                    'France',
+                                    'England',
                                     style: TextStyle(
                                       fontSize: 14,
                                       color: Theme.of(context)
@@ -168,7 +168,7 @@ class _TabletProfilePageState extends State<TabletProfilePage> {
 
                                   // location name
                                   Text(
-                                    'French, English',
+                                    'English',
                                     style: TextStyle(
                                       fontSize: 14,
                                       color: Theme.of(context)

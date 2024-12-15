@@ -142,7 +142,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
 
                                       // location name
                                       Text(
-                                        'France',
+                                        'England',
                                         style: TextStyle(
                                           fontSize: 14,
                                           color: Theme.of(context)
@@ -171,7 +171,7 @@ class _DesktopProfilePageState extends State<DesktopProfilePage> {
 
                                       // location name
                                       Text(
-                                        'French, English',
+                                        'English',
                                         style: TextStyle(
                                           fontSize: 14,
                                           color: Theme.of(context)

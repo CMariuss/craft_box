@@ -69,7 +69,7 @@ class _MobileProfilePageState extends State<MobileProfilePage> {
                 widget.user!.bio != ''
                     ? Column(
                         children: [
-                          const SizedBox(height: 25),
+                          const SizedBox(height: 15),
 
                           // profile description
                           Text(

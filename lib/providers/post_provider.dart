@@ -9,7 +9,7 @@ class PostProvider {
     postList.clear();
 
     final Post post_01 = Post(
-      userName: 'Jim Smith',
+      userName: 'Crintea Marius',
       profilePicturePath: 'images/profile/profile_03.jpg',
       postMediaPath: 'images/posts/post_03.jpg',
       postTitle: 'Best carpentry tools',
