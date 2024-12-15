@@ -12,7 +12,7 @@ It comes with a simple and elegant design.
 
 ## Screen size adaptation
 
-![Screen size adaptation GIF] (assets/GIF/screen_size_adapt.gif)
+![Screen size adaptation GIF](assets/GIF/screen_size_adapt.gif)
 
 ## Main components and features
 
