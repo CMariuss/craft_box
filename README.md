@@ -12,7 +12,7 @@ It comes with a simple and elegant design.
 
 ## Screen size adaptation
 
-[Screen size adaptation] (assets/video/cross_platform.mov)
+![Screen size adaptation GIF] (assets/GIF/screen_size_adapt.gif)
 
 ## Main components and features
 
@@ -31,10 +31,12 @@ It comes with a simple and elegant design.
     - Tablet size screen
     - Desktop size screen
 
-- Pages
+- App pages
     - Home page
     - Profile page
     - Edit profile page
+    - Login page
+    - Register page
 
 ## Libraries
 
