@@ -68,11 +68,14 @@ It comes with a simple and elegant design.
 
 <p align="center">
   <img src="images/app_ui/web/desktop_home_page.png" alt="Light theme" width="400"/>
-  <img src="images/app_ui/web/tablet_home_page.png" alt="Light theme" width="400"/>
-  <img src="images/app_ui/web/mobile_home_page.png" alt="Light theme" width="400"/>
   <img src="images/app_ui/web/desktop_profile_page.png" alt="Light theme" width="400"/>
   <img src="images/app_ui/web/desktop_login_page.png" alt="Light theme" width="400"/>
   <img src="images/app_ui/web/desktop_register_page.png" alt="Light theme" width="400"/>
+</p>
+
+<p align="center">
+  <img src="images/app_ui/web/tablet_home_page.png" alt="Light theme" width="400"/>
+  <img src="images/app_ui/web/mobile_home_page.png" alt="Light theme" width="400"/>
 </p>
 
 # References
