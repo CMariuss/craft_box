@@ -10,6 +10,10 @@ The application contains the following pages: home page, profile page, edit prof
 register page.
 It comes with a simple and elegant design.
 
+## Screen size adaptation
+
+[Screen size adaptation] (assets/video/cross_platform.mov)
+
 ## Main components and features
 
 - User authentication
@@ -50,8 +54,9 @@ It comes with a simple and elegant design.
   <img src="images/app_ui/mobile/register_page.png" alt="Florence theme" width="200"/>
   <img src="images/app_ui/mobile/edit_profile.png" alt="Silver theme" width="200"/>
   <img src="images/app_ui/mobile/drawer.png" alt="Silver theme" width="200"/>
-  <img src="images/app_ui/mobile/landscape_mobile_mode.png" alt="Silver theme" width="200"/>
 </p>
+
+<img src="images/app_ui/mobile/landscape_mobile_mode.png" alt="Silver theme" width="400"/>
 
 ## Web version
 
@@ -61,6 +66,7 @@ It comes with a simple and elegant design.
   <img src="images/app_ui/web/mobile_home_page.png" alt="Light theme" width="200"/>
   <img src="images/app_ui/web/desktop_profile_page.png" alt="Light theme" width="200"/>
   <img src="images/app_ui/web/desktop_login_page.png" alt="Light theme" width="200"/>
+  <img src="images/app_ui/web/desktop_register_page.png" alt="Light theme" width="200"/>
 </p>
 
 # References
