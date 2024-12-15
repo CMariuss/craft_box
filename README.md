@@ -27,9 +27,9 @@ It comes with a simple and elegant design.
     - Web
 
 - Screen size adaptation
-    - Mobile size screen
-    - Tablet size screen
-    - Desktop size screen
+    - Desktop screen size
+    - Tablet screen size
+    - Mobile screen size
 
 - App pages
     - Home page
