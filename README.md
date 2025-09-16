@@ -1,4 +1,4 @@
-# C R A F T BOX - Social media app concept
+# Social media app concept
 
 This is a social media application concept developed using the Flutter framework for Android, iOS
 and Web platforms.
